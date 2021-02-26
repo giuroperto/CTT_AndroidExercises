@@ -80,20 +80,10 @@
             android:scaleType="centerCrop"
             />
 
-        <!-- Dynamic -->
-        <Spinner
-            android:id="@+id/spn_car_brand1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_margin="10dp" />
-
-        <!-- static -->
         <Spinner
             android:id="@+id/spn_car_brand2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/spinner"
             android:layout_margin="10dp"
             android:entries="@array/car_brand" />
 
@@ -102,7 +92,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:textColor="@color/black"
             android:hint="@string/app_edit_model"
             />
 
@@ -122,6 +111,7 @@
             android:layout_margin="10dp"
             android:textColor="@color/black"
             android:hint="@string/app_edit_year"
+            android:inputType="numberDecimal"
             />
 
         <EditText
@@ -146,10 +136,5 @@
         <!--            android:onClick="saveValues"-->
 
     </LinearLayout>
-
-
-
-
+    
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-<!--        android:inputType="numberDecimal"-->
