@@ -2,6 +2,23 @@
     <string name="app_name">Cars</string>
     <string name="app_title">Car Dealer</string>
     <string name="app_desc">Want to sell your car? Add it to our database and we will take care of it for you!</string>
-    <string name="app_edit_brand">Car Brand</string>
+
+    <string-array name="car_brand">
+        <item>Car Brand</item>
+        <item>Honda</item>
+        <item>Fiat</item>
+        <item>VW</item>
+        <item>Chevrolet</item>
+        <item>Citroen</item>
+        <item>BMW</item>
+        <item>Mercedes</item>
+        <item>Ferrari</item>
+        <item>Tesla</item>
+    </string-array>
+
     <string name="app_edit_model">Car Model</string>
+    <string name="app_edit_color">Color</string>
+    <string name="app_edit_year">Year</string>
+    <string name="app_edit_lplate">License plate</string>
+    <string name="btn_save">Save Infos</string>
 </resources>

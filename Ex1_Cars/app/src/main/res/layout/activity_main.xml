@@ -22,8 +22,8 @@
         >
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:src="@drawable/ic_racing_flag" />
 
         <TextView
@@ -41,8 +41,8 @@
             android:layout_marginHorizontal="10dp"/>
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:src="@drawable/ic_racing_flag" />
 
     </LinearLayout>
@@ -54,7 +54,7 @@
         android:layout_margin="12dp"
         android:gravity="center"
         android:text="@string/app_desc"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lnrHeader"
@@ -72,22 +72,30 @@
 
         <ImageView
             android:id="@+id/imgCar"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="14dp"
             android:src="@drawable/ic_car"
             android:scaleType="centerCrop"
             />
 
-        <EditText
-            android:id="@+id/edtBrand"
+        <!-- Dynamic -->
+        <Spinner
+            android:id="@+id/spn_car_brand1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_margin="10dp" />
+
+        <!-- static -->
+        <Spinner
+            android:id="@+id/spn_car_brand2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinner"
             android:layout_margin="10dp"
-            android:textColor="@color/black"
-            android:hint="@string/app_edit_brand"
-            />
+            android:entries="@array/car_brand" />
 
         <EditText
             android:id="@+id/edtModel"
@@ -98,6 +106,45 @@
             android:hint="@string/app_edit_model"
             />
 
+        <EditText
+            android:id="@+id/edtColour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:hint="@string/app_edit_color"
+            />
+
+        <EditText
+            android:id="@+id/edtYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:hint="@string/app_edit_year"
+            />
+
+        <EditText
+            android:id="@+id/edtLPlate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:hint="@string/app_edit_lplate"
+            />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="bold"
+            android:text="@string/btn_save"
+            />
+        <!--            android:onClick="saveValues"-->
+
     </LinearLayout>
 
 
@@ -106,16 +153,3 @@
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 <!--        android:inputType="numberDecimal"-->
-
-<!--    <Button-->
-<!--        android:id="@+id/btnCadastrar"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@color/colorPrimary"-->
-<!--        android:text="@string/btn_cadastrar"-->
-<!--        android:textColor="@color/white"-->
-<!--        android:paddingLeft="32dp"-->
-<!--        android:paddingRight="32dp"-->
-<!--        android:layout_margin="24dp"-->
-<!--        android:layout_gravity="center_horizontal"-->
-<!--        />-->
