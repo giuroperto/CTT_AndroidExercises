@@ -16,9 +16,12 @@
         <item>Tesla</item>
     </string-array>
 
+    <string name="app_edit_owner">Car Owner</string>
     <string name="app_edit_model">Car Model</string>
     <string name="app_edit_color">Color</string>
     <string name="app_edit_year">Year</string>
     <string name="app_edit_lplate">License plate</string>
     <string name="btn_save">Save Infos</string>
+
+    <string name="app_car_desc">Data submitted! Thanks for choosing our app.</string>
 </resources>

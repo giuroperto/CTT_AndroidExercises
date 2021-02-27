@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".CarsActivity"
     android:background="@color/gray"
     android:orientation="vertical"
     >
@@ -51,11 +51,12 @@
         android:id="@+id/txtDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:paddingHorizontal="12dp"
+        android:layout_margin="14dp"
+        android:paddingHorizontal="30dp"
         android:gravity="center"
-        android:text="@string/app_desc"
+        android:text="@string/app_car_desc"
         android:textSize="20sp"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lnrHeader"
@@ -76,73 +77,23 @@
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="18dp"
             android:src="@drawable/ic_car"
             android:scaleType="centerCrop"
             />
 
-        <Spinner
-            android:id="@+id/spn_car_brand2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:entries="@array/car_brand" />
-
-        <EditText
-            android:id="@+id/edtOwner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:hint="@string/app_edit_owner"
-            />
-
-        <EditText
-            android:id="@+id/edtModel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:hint="@string/app_edit_model"
-            />
-
-        <EditText
-            android:id="@+id/edtColour"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:textColor="@color/black"
-            android:hint="@string/app_edit_color"
-            />
-
-        <EditText
-            android:id="@+id/edtYear"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:textColor="@color/black"
-            android:hint="@string/app_edit_year"
-            android:inputType="numberDecimal"
-            />
-
-        <EditText
-            android:id="@+id/edtLPlate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:textColor="@color/black"
-            android:hint="@string/app_edit_lplate"
-            />
-
-        <Button
-            android:id="@+id/btnSave"
+        <TextView
+            android:id="@+id/txtCarDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:textColor="@color/white"
-            android:layout_gravity="center_horizontal"
+            android:textSize="28sp"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:paddingVertical="30dp"
             android:textStyle="bold"
-            android:text="@string/btn_save"
+            android:textColor="@color/white"
+            tools:text="Owner: Giulia, \nBrand: Honda, \nModel: Fit, \nColour: Black, \nYear: 2020, \nLicense Plate: EXA-2020"
             />
-        <!--            android:onClick="saveValues"-->
 
     </LinearLayout>
 
