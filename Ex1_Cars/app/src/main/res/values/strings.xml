@@ -21,7 +21,8 @@
     <string name="app_edit_color">Color</string>
     <string name="app_edit_year">Year</string>
     <string name="app_edit_lplate">License plate</string>
+    <string name="app_edit_price">Price (eg. 10000.0)</string>
     <string name="btn_save">Save Infos</string>
 
-    <string name="app_car_desc">Data submitted! Thanks for choosing our app.</string>
+    <string name="app_car_desc">Thanks for choosing our app! We are analysing your details and we will get back to you soon.</string>
 </resources>

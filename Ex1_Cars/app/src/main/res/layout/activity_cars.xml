@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CarsActivity"
+    tools:context=".CarActivity"
     android:background="@color/gray"
     android:orientation="vertical"
     >
@@ -86,13 +86,13 @@
             android:id="@+id/txtCarDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="28sp"
+            android:textSize="26sp"
             android:layout_gravity="center"
             android:textAlignment="center"
             android:paddingVertical="30dp"
             android:textStyle="bold"
             android:textColor="@color/white"
-            tools:text="Owner: Giulia, \nBrand: Honda, \nModel: Fit, \nColour: Black, \nYear: 2020, \nLicense Plate: EXA-2020"
+            tools:text="Owner: Giulia, \nBrand: Honda, \nModel: Fit, \nColour: Black, \nYear: 2020, \nLicense Plate: EXA-2020, \n\nR$ 15.000"
             />
 
     </LinearLayout>

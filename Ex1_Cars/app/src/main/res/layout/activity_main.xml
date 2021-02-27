@@ -18,7 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
         >
 
         <ImageView
@@ -81,13 +81,6 @@
             android:scaleType="centerCrop"
             />
 
-        <Spinner
-            android:id="@+id/spn_car_brand2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:entries="@array/car_brand" />
-
         <EditText
             android:id="@+id/edtOwner"
             android:layout_width="match_parent"
@@ -95,6 +88,13 @@
             android:layout_marginHorizontal="10dp"
             android:hint="@string/app_edit_owner"
             />
+
+        <Spinner
+            android:id="@+id/spnCarBrand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:entries="@array/car_brand" />
 
         <EditText
             android:id="@+id/edtModel"
@@ -109,7 +109,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
-            android:textColor="@color/black"
             android:hint="@string/app_edit_color"
             />
 
@@ -118,7 +117,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
-            android:textColor="@color/black"
             android:hint="@string/app_edit_year"
             android:inputType="numberDecimal"
             />
@@ -128,8 +126,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
-            android:textColor="@color/black"
             android:hint="@string/app_edit_lplate"
+            />
+
+        <EditText
+            android:id="@+id/edtPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:hint="@string/app_edit_price"
+            android:inputType="numberDecimal"
             />
 
         <Button
