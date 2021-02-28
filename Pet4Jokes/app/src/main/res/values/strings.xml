@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Pet4Jokes</string>
+    <string name="app_desc">Feeling anxious, angry or depressed? Come meet our puppies, pet them a lot and maybe, if you are lucky enough, they may tell you a joke to make you feel even better!</string>
+    <string name="app_btn">START</string>
+
+    <string name="pet_desc">Hi, I\'m Spaghetti! They say that when you are feeling down, you should play with a dog... it makes it a whole better. As I cannot run and chase a ball here, what we could do is: you pet me and as a reward, if I enjoy it, I will tell you a joke. What are you waiting for? Ain\'t I a good boy?</string>
+    <string name="pet_rule">To pet, click on the image.</string>
+
+    <string name="joke_title">You got it! This puppy really enjoyed you petting it and is ready to tell you a geeky joke!</string>
+</resources>
