@@ -36,3 +36,5 @@ class PetActivity : AppCompatActivity() {
         startActivity(targertActivity)
     }
 }
+
+// TODO: 28/02/2021 integrate pet pictures with API 

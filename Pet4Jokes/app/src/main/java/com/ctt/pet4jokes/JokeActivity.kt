@@ -45,4 +45,6 @@ class JokeActivity : AppCompatActivity() {
     }
 }
 
+
+// TODO: 28/02/2021 integrate jokes with api 
 //<!--jokes from https://geek-jokes.sameerkumar.website/api?format=json-->
