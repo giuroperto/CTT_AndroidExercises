@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MoodyMe</string>
+    <string name="btn_start">START</string>
+
+    <string name="mood_desc">Pick a date and a mood to add to your MOOD TRACKER!</string>
+    <string name="mood_date">Select a Date</string>
+    <string name="txt_anger">Angry</string>
+    <string name="txt_fear">Fearful</string>
+    <string name="txt_disgust">Disgusted</string>
+    <string name="txt_sadness">Sad</string>
+    <string name="txt_joy">Happy</string>
+    <string name="txt_meh">Meh</string>
+
+</resources>

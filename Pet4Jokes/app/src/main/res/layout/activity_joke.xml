@@ -29,8 +29,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtJokeTitle"
-        android:background="@mipmap/ic_main_dog2"
         android:layout_marginTop="40dp"
+        android:scaleType="centerCrop"
         />
 
     <TextView
