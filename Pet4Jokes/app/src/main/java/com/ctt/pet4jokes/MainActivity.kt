@@ -18,16 +18,16 @@ class MainActivity : AppCompatActivity() {
 
         btnStart = findViewById(R.id.btnStart)
 
-        val dog1 = Pet("Spaghetti", R.mipmap.ic_dog1_foreground)
-        val dog2 = Pet("Porpetta", R.mipmap.ic_dog2_foreground)
-        val dog3 = Pet("Ghiaccio", R.mipmap.ic_dog3_foreground)
-        val dog4 = Pet("Troppo", R.mipmap.ic_dog4_foreground)
-        val dog5 = Pet("Piccolino", R.mipmap.ic_dog5_foreground)
-        val dog6 = Pet("Principessa", R.mipmap.ic_dog6_foreground)
+        val dog1 = Pet("Spaghetti", "https://images.pexels.com/photos/2023384/pexels-photo-2023384.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
+        val dog2 = Pet("Porpetta", "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
+        val dog3 = Pet("Ghiaccio", "https://images.pexels.com/photos/1619690/pexels-photo-1619690.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
+        val dog4 = Pet("Troppo", "https://images.pexels.com/photos/755380/pexels-photo-755380.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
+        val dog5 = Pet("Piccolino", "https://images.pexels.com/photos/37401/dog-cute-pet.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
+        val dog6 = Pet("Principessa", "https://images.pexels.com/photos/1390361/pexels-photo-1390361.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
 
         dogList = listOf(dog1, dog2, dog3, dog4, dog5, dog6)
 
-        var rand = (Math.random() * 7).toInt() - 1
+        var rand = (Math.random() * 6).toInt()
 
         var randomDog = dogList[rand]
 

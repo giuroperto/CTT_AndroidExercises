@@ -10,6 +10,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.ctt.pet4jokes.databinding.ActivityPetBinding
 import com.ctt.pet4jokes.model.Pet
 
@@ -34,11 +35,11 @@ class PetActivity : AppCompatActivity() {
         txtDesc = findViewById(R.id.txtPetDesc)
 
         if (dog.picture != null) {
-//            var bitmap : Bitmap = BitmapFactory.decodeResource(resources, R.mipmap.ic_dog1)
-//            imgDog.setImageBitmap(bitmap)
-            imgDog.setImageResource(dog.picture)
+            Glide.with(this)
+                .load(dog.picture)
+                .centerCrop()
+                .into(imgDog)
         } else {
-//            imgDog.setImageBitmap(BitmapFactory.decodeResource(resources, R.mipmap.ic_main_dog2))
             imgDog.setImageResource(R.mipmap.ic_main_dog2)
         }
 

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.ctt.pet4jokes.databinding.ActivityJokeBinding
 import com.ctt.pet4jokes.databinding.ActivityPetBinding
 import com.ctt.pet4jokes.model.Pet
@@ -53,7 +54,10 @@ class JokeActivity : AppCompatActivity() {
         binding.txtJoke.text = randomJoke
 
         if (dog.picture != null) {
-            binding.imgDog.setImageResource(dog.picture)
+            Glide.with(this)
+                .load(dog.picture)
+                .centerCrop()
+                .into(binding.imgDog)
         } else {
             binding.imgDog.setImageResource(R.mipmap.ic_main_dog2)
         }
