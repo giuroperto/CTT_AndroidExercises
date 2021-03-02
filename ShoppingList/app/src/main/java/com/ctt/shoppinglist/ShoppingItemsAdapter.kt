@@ -14,6 +14,12 @@ class ShoppingItemsAdapter(private val shoppingList: MutableList<ShoppingItem>) 
         val shoppingQuantity : TextView = view.findViewById(R.id.txtQuantity)
     }
 
+    fun addItem(newItem: ShoppingItem) {
+        shoppingList.add(newItem)
+        MainActivity.staticShoppingList.add(newItem)
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
         val view = LayoutInflater.from(parent.context).inflate(R.layout.shopping_item, parent, false)

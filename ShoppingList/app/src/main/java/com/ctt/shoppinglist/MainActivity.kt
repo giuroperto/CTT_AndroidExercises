@@ -37,7 +37,9 @@ class MainActivity : AppCompatActivity() {
         )
 
         val rvItems = findViewById<RecyclerView>(R.id.itemsList)
-        rvItems.adapter = ShoppingItemsAdapter(shoppingList)
+
+        val itemsAdapter = ShoppingItemsAdapter(shoppingList)
+        rvItems.adapter = itemsAdapter
         rvItems.layoutManager = LinearLayoutManager(this)
 
         addBtn.setOnClickListener{
@@ -54,19 +56,24 @@ class MainActivity : AppCompatActivity() {
 
             if (inputItem.isNotEmpty() && inputQuantity.isNotEmpty()) {
 
-                val newItem = ShoppingItem(name = inputItem, quantity = inputQuantity.toInt())
-                addItem(newItem)
+                itemsAdapter.addItem(
+                        ShoppingItem(name = inputItem, quantity = inputQuantity.toInt())
+                )
             }
         }
     }
 
-    fun addItem(item: ShoppingItem) {
+//    fun addItem(item: ShoppingItem) {
+//
+//        shoppingList.add(item)
+//        showItem(item)
+//    }
 
-        shoppingList.add(item)
-        showItem(item)
-    }
+//    fun showItem(item: ShoppingItem) {
+//        Toast.makeText(this, "Item ${item.name} successfully added!", Toast.LENGTH_SHORT).show()
+//    }
 
-    fun showItem(item: ShoppingItem) {
-        Toast.makeText(this, "Item ${item.name} successfully added!", Toast.LENGTH_SHORT).show()
+    companion object{
+        val staticShoppingList = mutableListOf<ShoppingItem>()
     }
 }
