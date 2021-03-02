@@ -37,6 +37,7 @@
         android:layout_height="wrap_content"
         android:textSize="10sp"
         android:textStyle="bold"
+        android:textColor="@color/darkGray"
         app:layout_constraintStart_toStartOf="@+id/txtContato"
         app:layout_constraintTop_toBottomOf="@+id/txtContato"
         tools:text="Pessoal, vou pagar a breja hoje!"
