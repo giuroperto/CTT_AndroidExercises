@@ -33,6 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtTitle"
         android:orientation="horizontal"
         android:gravity="center"
+        android:background="@color/dark_gray"
         >
 
         <EditText
@@ -41,13 +42,17 @@
             android:layout_height="wrap_content"
             android:hint="@string/add_quantity"
             android:inputType="numberDecimal"
+            android:textColor="@color/white"
             />
 
         <EditText
             android:id="@+id/edtItem"
+            android:layout_marginLeft="10dp"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:hint="@string/add_item"/>
+            android:hint="@string/add_item"
+            android:textColor="@color/white"
+            />
 
         <Button
             android:id="@+id/btnAdd"
@@ -55,6 +60,7 @@
             android:layout_height="50dp"
             android:textStyle="bold"
             android:text="@string/btn_add"
+            android:layout_marginLeft="20dp"
             />
 
     </LinearLayout>
