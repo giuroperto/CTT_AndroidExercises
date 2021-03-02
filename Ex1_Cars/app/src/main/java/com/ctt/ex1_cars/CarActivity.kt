@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.ctt.ex1_cars.databinding.ActivityCarsBinding
 import com.ctt.ex1_cars.models.Car
+import kotlinx.android.synthetic.main.activity_cars.*
 
 class CarActivity : AppCompatActivity() {
 
@@ -22,6 +23,12 @@ class CarActivity : AppCompatActivity() {
 
         binding.txtCarDetails.text = "Owner: ${car.carOwner.capitalize()}, \nBrand: ${car.carBrand}, \nModel: ${car.carModel.capitalize()}, " +
                 "\nColour: ${car.carColour.capitalize()}, \nYear: ${car.year}, \nLicense Plate: ${car.licencePlate.toUpperCase()}, \n\nR$ ${priceAdjusted}"
+
+        if (car.carPicture != null) {
+            binding.imgCar.setImageURI(car.carPicture)
+        } else {
+            binding.imgCar.setImageResource(R.drawable.ic_car)
+        }
 
     }
 }

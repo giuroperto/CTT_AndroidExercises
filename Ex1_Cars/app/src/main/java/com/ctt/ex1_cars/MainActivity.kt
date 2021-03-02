@@ -2,10 +2,13 @@ package com.ctt.ex1_cars
 
 import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.*
 import com.ctt.ex1_cars.models.Car
+import kotlinx.android.synthetic.main.activity_cars.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var carPrice : EditText
     private lateinit var carPicture : ImageView
 
-    private var pic: Bitmap? = null
+    private var pic: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,15 +83,43 @@ class MainActivity : AppCompatActivity() {
                 inputYear.isNotEmpty() &&
                 inputLicensePlate.isNotEmpty() &&
                     inputPrice.isNotEmpty()) {
-                val car = Car(carBrand = inputBrand,
-                    carOwner = inputOwner,
-                    carModel = inputModel,
-                    carColour = inputColour,
-                    carYear = inputYear.toInt(),
-                    carLicensePlate = inputLicensePlate,
-                    carPrice = inputPrice.toDouble())
+                val car = Car(carPicture = pic,
+                        carBrand = inputBrand,
+                        carOwner = inputOwner,
+                        carModel = inputModel,
+                        carColour = inputColour,
+                        carYear = inputYear.toInt(),
+                        carLicensePlate = inputLicensePlate,
+                        carPrice = inputPrice.toDouble())
                 showCar(car)
             }
+        }
+
+        carPicture.setOnClickListener {
+            getPicFromMedia()
+        }
+    }
+
+    fun getPicFromMedia() {
+        val MEDIA_REQUEST_CODE = 2021
+
+        val mediaIntent = Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+
+        if (mediaIntent.resolveActivity(packageManager) != null) {
+            startActivityForResult(mediaIntent, MEDIA_REQUEST_CODE)
+        } else {
+            Toast.makeText(this, "Sorry, something went wrong! Try again.", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == 2021 && resultCode == RESULT_OK) {
+
+            pic = data?.data
+
+            imgCar.setImageURI(pic)
         }
     }
 
