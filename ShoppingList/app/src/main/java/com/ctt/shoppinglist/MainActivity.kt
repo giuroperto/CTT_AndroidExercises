@@ -59,21 +59,9 @@ class MainActivity : AppCompatActivity() {
                 itemsAdapter.addItem(
                         ShoppingItem(name = inputItem, quantity = inputQuantity.toInt())
                 )
+
+                Toast.makeText(this, "Item $inputItem successfully added!", Toast.LENGTH_SHORT).show()
             }
         }
-    }
-
-//    fun addItem(item: ShoppingItem) {
-//
-//        shoppingList.add(item)
-//        showItem(item)
-//    }
-
-//    fun showItem(item: ShoppingItem) {
-//        Toast.makeText(this, "Item ${item.name} successfully added!", Toast.LENGTH_SHORT).show()
-//    }
-
-    companion object{
-        val staticShoppingList = mutableListOf<ShoppingItem>()
     }
 }
