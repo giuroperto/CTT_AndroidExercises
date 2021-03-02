@@ -61,7 +61,18 @@ class MainActivity : AppCompatActivity() {
                 )
 
                 Toast.makeText(this, "Item $inputItem successfully added!", Toast.LENGTH_SHORT).show()
+
+//                clearInputFields()
             }
         }
     }
+
+//    fun clearInputFields() {
+//        shopItem.cle = ""
+//        shopQtd.text = ""
+//    }
 }
+
+// TODO: 02/03/2021 clear input fields 
+// TODO: 02/03/2021 style app 
+// TODO: 02/03/2021 capitalize add words 
