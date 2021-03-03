@@ -72,10 +72,6 @@ class MainActivity : AppCompatActivity() {
         shopItem.text.clear()
         shopQt.text.clear()
     }
-
-//    fun deleteItem() {
-//
-//    }
 }
 
 // TODO: 02/03/2021 clear input fields
