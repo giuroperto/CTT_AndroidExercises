@@ -4,9 +4,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 import com.ctt.shoppinglist.model.ShoppingItem
 
@@ -19,13 +21,9 @@ class ShoppingItemsAdapter(private val shoppingList: MutableList<ShoppingItem>) 
     }
 
     fun addItem(newItem: ShoppingItem) {
-        shoppingList.add(newItem)
-        notifyDataSetChanged()
-    }
-
-    fun removeItem(itemName: String) {
-        shoppingList.removeAll { listItem -> listItem.name.toLowerCase().equals(itemName.toLowerCase()) }
-        notifyDataSetChanged()
+        shoppingList.add(newItem).also {
+            notifyDataSetChanged()
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -40,7 +38,8 @@ class ShoppingItemsAdapter(private val shoppingList: MutableList<ShoppingItem>) 
         holder.shoppingQuantity.text = shoppingList[position].quantity.toString()
 
         holder.delete.setOnClickListener {
-            removeItem(shoppingList[position].name)
+            shoppingList.removeAt(position)
+            notifyDataSetChanged()
         }
     }
 

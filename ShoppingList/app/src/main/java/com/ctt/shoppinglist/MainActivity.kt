@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ctt.shoppinglist.model.ShoppingItem
@@ -74,5 +75,4 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-// TODO: 02/03/2021 clear input fields
 // TODO: 02/03/2021 delete item
