@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ctt.shoppinglist.model.ShoppingItem
+import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator
 
 class MainActivity : AppCompatActivity() {
 
@@ -43,6 +44,11 @@ class MainActivity : AppCompatActivity() {
         val itemsAdapter = ShoppingItemsAdapter(shoppingList)
         rvItems.adapter = itemsAdapter
         rvItems.layoutManager = LinearLayoutManager(this)
+        rvItems.itemAnimator = SlideInLeftAnimator()
+        rvItems.itemAnimator?.apply {
+            addDuration = 400
+            removeDuration = 500
+        }
 
         addBtn.setOnClickListener{
             val inputItem = shopItem.text.toString().capitalize()
@@ -74,5 +80,3 @@ class MainActivity : AppCompatActivity() {
         shopQt.text.clear()
     }
 }
-
-// TODO: 02/03/2021 delete item

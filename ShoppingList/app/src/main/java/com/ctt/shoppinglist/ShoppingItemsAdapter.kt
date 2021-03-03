@@ -1,5 +1,6 @@
 package com.ctt.shoppinglist
 
+import android.animation.Animator
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -11,8 +12,10 @@ import android.widget.Toast
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 import com.ctt.shoppinglist.model.ShoppingItem
+import jp.wasabeef.recyclerview.animators.holder.AnimateViewHolder
+import kotlin.math.hypot
 
-class ShoppingItemsAdapter(private val shoppingList: MutableList<ShoppingItem>) : RecyclerView.Adapter<ShoppingItemsAdapter.ViewHolder>() {
+class ShoppingItemsAdapter(private val shoppingList: MutableList<ShoppingItem>) : RecyclerView.Adapter<ShoppingItemsAdapter.ViewHolder>(){
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val shoppingItem : TextView = view.findViewById(R.id.txtItem)
@@ -22,7 +25,7 @@ class ShoppingItemsAdapter(private val shoppingList: MutableList<ShoppingItem>) 
 
     fun addItem(newItem: ShoppingItem) {
         shoppingList.add(newItem).also {
-            notifyDataSetChanged()
+            notifyItemInserted(itemCount - 1)
         }
     }
 
@@ -39,7 +42,8 @@ class ShoppingItemsAdapter(private val shoppingList: MutableList<ShoppingItem>) 
 
         holder.delete.setOnClickListener {
             shoppingList.removeAt(position)
-            notifyDataSetChanged()
+            notifyItemRemoved(position)
+            notifyItemRangeChanged(position, getItemCount())
         }
     }
 
