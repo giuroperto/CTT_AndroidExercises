@@ -21,6 +21,7 @@ import kotlin.math.hypot
 class ShoppingItemsAdapter(private val shoppingList: MutableList<ShoppingItem>) : RecyclerView.Adapter<ShoppingItemsAdapter.ViewHolder>(){
 
     private lateinit var parentContext: View
+    var btnOption: Boolean = false
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val shoppingItem : TextView = view.findViewById(R.id.txtItem)
@@ -48,10 +49,8 @@ class ShoppingItemsAdapter(private val shoppingList: MutableList<ShoppingItem>) 
         holder.shoppingQuantity.text = shoppingList[position].quantity.toString()
 
         holder.delete.setOnClickListener {
-            basicAlert(parentContext)
-            shoppingList.removeAt(position)
-            notifyItemRemoved(position)
-            notifyItemRangeChanged(position, getItemCount())
+            basicAlert(parentContext, position)
+            btnOption = false
         }
     }
 
@@ -59,24 +58,34 @@ class ShoppingItemsAdapter(private val shoppingList: MutableList<ShoppingItem>) 
         return shoppingList.size
     }
 
-    fun basicAlert(view: View) {
+    fun basicAlert(view: View, position: Int) {
         val alertDialogBuilder = AlertDialog.Builder(view.context)
 
         with(alertDialogBuilder) {
             setMessage(R.string.dialog_remove)
-            setPositiveButton(R.string.remove,  DialogInterface.OnClickListener{
+            setPositiveButton(R.string.remove,  DialogInterface.OnClickListener {
                     _, _ ->
-                Toast.makeText(view.context, "REMOVE", Toast.LENGTH_SHORT).show()
+                deleteItem(position)
+                deleteMessage("Item removed!")
             })
-            setNegativeButton(R.string.cancel, DialogInterface.OnClickListener{
+            setNegativeButton(R.string.cancel, DialogInterface.OnClickListener {
                     _, _ ->
-                Toast.makeText(view.context, "CANCEL", Toast.LENGTH_SHORT).show()
+                btnOption = false
             })
-            setIcon(android.R.drawable.dialog_holo_light_frame)
         }
 
         val alertDialog = alertDialogBuilder.create()
         alertDialog.show()
+    }
+
+    fun deleteMessage(type: String) {
+        Toast.makeText(parentContext.context, type, Toast.LENGTH_SHORT).show()
+    }
+
+    fun deleteItem(position: Int) {
+        shoppingList.removeAt(position)
+        notifyItemRemoved(position)
+        notifyItemRangeChanged(position, getItemCount())
     }
 
 }
