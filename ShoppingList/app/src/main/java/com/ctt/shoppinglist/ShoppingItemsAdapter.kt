@@ -1,6 +1,8 @@
 package com.ctt.shoppinglist
 
 import android.animation.Animator
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -41,6 +43,7 @@ class ShoppingItemsAdapter(private val shoppingList: MutableList<ShoppingItem>) 
         holder.shoppingQuantity.text = shoppingList[position].quantity.toString()
 
         holder.delete.setOnClickListener {
+
             shoppingList.removeAt(position)
             notifyItemRemoved(position)
             notifyItemRangeChanged(position, getItemCount())
@@ -49,5 +52,32 @@ class ShoppingItemsAdapter(private val shoppingList: MutableList<ShoppingItem>) 
 
     override fun getItemCount(): Int {
         return shoppingList.size
+    }
+
+    fun basicAlert(view: View) {
+        val alertDialogBuilder = AlertDialog.Builder(view.context)
+
+        with(alertDialogBuilder) {
+            setMessage(R.string.dialog_remove)
+            setPositiveButton(R.string.remove,  DialogInterface.OnClickListener{
+                    _, _ ->
+                Toast.makeText(view.context, "REMOVE", Toast.LENGTH_SHORT).show()
+            })
+            setNegativeButton(R.string.cancel, negativeButtonClick)
+            setIcon(android.R.drawable.dialog_holo_light_frame)
+        }
+
+        val alertDialog = alertDialogBuilder.create()
+        alertDialog.show()
+    }
+
+//    val positiveButtonClick = {
+//            dialog: DialogInterface, which: Int ->
+//            Toast.makeText(view.context, "REMOVE", Toast.LENGTH_SHORT).show()
+//    }
+
+    val negativeButtonClick = {
+            dialog: DialogInterface, which: Int ->
+            Toast.makeText(view.context, "CANCEL", Toast.LENGTH_SHORT).show()
     }
 }

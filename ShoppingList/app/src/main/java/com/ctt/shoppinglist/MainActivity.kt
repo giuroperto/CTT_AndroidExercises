@@ -1,12 +1,15 @@
 package com.ctt.shoppinglist
 
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContentProviderCompat
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -79,4 +82,33 @@ class MainActivity : AppCompatActivity() {
         shopItem.text.clear()
         shopQt.text.clear()
     }
+
+//    private companion object {
+//        fun basicAlert(view: View) {
+//            val alertDialogBuilder = android.app.AlertDialog.Builder()
+//
+//            with(alertDialogBuilder) {
+//                setMessage(R.string.dialog_remove)
+//                setPositiveButton(R.string.remove,  positiveButtonClick)
+//                setNegativeButton(R.string.cancel, negativeButtonClick)
+//                setIcon(android.R.drawable.dialog_holo_light_frame)
+//            }
+//
+//            val alertDialog = alertDialogBuilder.create()
+//            alertDialog.show()
+//        }
+//
+//        val positiveButtonClick = {
+//                dialog: DialogInterface, which: Int ->
+//            Toast.makeText(, "REMOVE", Toast.LENGTH_SHORT).show()
+//        }
+//
+//        val negativeButtonClick = {
+//                dialog: DialogInterface, which: Int ->
+//            Toast.makeText(, "CANCEL", Toast.LENGTH_SHORT).show()
+//        }
+//    }
 }
+
+
+// TODO: 03/03/2021  add alertDialog when removing
