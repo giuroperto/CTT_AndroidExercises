@@ -22,7 +22,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/teal_700"
+        android:background="@color/darker_cherry"
+        android:textColor="@color/white"
         />
 
     <LinearLayout
@@ -43,6 +44,7 @@
             android:hint="@string/add_quantity"
             android:inputType="numberDecimal"
             android:textColor="@color/white"
+            android:textColorHint="@color/white"
             />
 
         <EditText
@@ -52,6 +54,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/add_item"
             android:textColor="@color/white"
+            android:textColorHint="@color/white"
             />
 
         <Button
@@ -60,7 +63,9 @@
             android:layout_height="50dp"
             android:textStyle="bold"
             android:text="@string/btn_add"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:textColor="@color/white"
+            android:textSize="20sp"
             />
 
     </LinearLayout>

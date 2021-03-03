@@ -9,5 +9,14 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="light_gray">#CFCFCF</color>
-    <color name="dark_gray">#4C4C4C</color>
+    <color name="dark_gray">#686868</color>
+    <color name="cherry">#E46161</color>
+    <color name="darker_cherry">#B0174E</color>
+    <color name="dark_cherry">#DC1D62</color>
+    <color name="darker_pink">#BD2D87</color>
+    <color name="lighter_pink">#D664BE</color>
+    <color name="pink">#C43B95</color>
+    <color name="light_purple">#B89BFF</color>
+    <color name="greenish">#7BABBC</color>
+
 </resources>

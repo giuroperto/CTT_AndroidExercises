@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="65dp"
+    android:layout_height="62dp"
     android:background="@color/white"
     >
 
@@ -20,22 +20,29 @@
 
         <TextView
             android:id="@+id/txtItem"
-            android:layout_width="250dp"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="15dp"
             android:textColor="@color/black"
             android:textSize="20sp"
             tools:text="Coffee" />
 
         <TextView
             android:id="@+id/txtQuantity"
-            android:layout_width="100dp"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/dark_cherry"
             android:textSize="20sp"
+            android:textStyle="bold"
             tools:text="2" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_trash"
+            android:layout_marginStart="40dp"
+            />
 
     </LinearLayout>
 

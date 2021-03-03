@@ -12,16 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val listaConversa = mutableListOf<Contato>(
-                Contato(imagem = null, nome = "Giulia", ultimaMensagem = "EEVEE!!!", horarioMensagem = "08:01 PM"),
-                Contato(imagem = null, nome = "Henrique", ultimaMensagem = "PIKACHU!!!", horarioMensagem = "08:02 PM"),
-                Contato(imagem = null, nome = "Daniel", ultimaMensagem = "ORCS!!!", horarioMensagem = "08:03 PM")
-        )
 
-        val rvConversas = findViewById<RecyclerView>(R.id.listaContatos)
-//        vinculando adapter a recycler view -> gerenciador de dados -> vincula os dois
-        rvConversas.adapter = ConversasAdapter(listaConversa)
-        rvConversas.layoutManager = LinearLayoutManager(this)
     }
 }
 
