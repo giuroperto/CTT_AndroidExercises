@@ -66,6 +66,7 @@
             android:layout_marginStart="20dp"
             android:textColor="@color/white"
             android:textSize="20sp"
+            android:background="@drawable/round_btn"
             />
 
     </LinearLayout>

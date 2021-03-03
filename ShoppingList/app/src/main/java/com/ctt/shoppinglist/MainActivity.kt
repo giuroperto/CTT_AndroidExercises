@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ctt.shoppinglist.model.ShoppingItem
@@ -43,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         rvItems.layoutManager = LinearLayoutManager(this)
 
         addBtn.setOnClickListener{
-            val inputItem = shopItem.text.toString()
+            val inputItem = shopItem.text.toString().capitalize()
             val inputQuantity = shopQt.text.toString()
 
             if (inputItem.isEmpty()) {
@@ -62,17 +63,20 @@ class MainActivity : AppCompatActivity() {
 
                 Toast.makeText(this, "Item $inputItem successfully added!", Toast.LENGTH_SHORT).show()
 
-//                clearInputFields()
+                clearInputFields()
             }
         }
     }
 
-//    fun clearInputFields() {
-//        shopItem.cle = ""
-//        shopQtd.text = ""
+    fun clearInputFields() {
+        shopItem.text.clear()
+        shopQt.text.clear()
+    }
+
+//    fun deleteItem() {
+//
 //    }
 }
 
-// TODO: 02/03/2021 clear input fields 
-// TODO: 02/03/2021 style app 
-// TODO: 02/03/2021 capitalize add words 
+// TODO: 02/03/2021 clear input fields
+// TODO: 02/03/2021 delete item
