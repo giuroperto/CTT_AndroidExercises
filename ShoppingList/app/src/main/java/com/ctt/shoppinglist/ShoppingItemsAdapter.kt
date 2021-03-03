@@ -2,6 +2,7 @@ package com.ctt.shoppinglist
 
 import android.animation.Animator
 import android.app.AlertDialog
+import android.content.Context
 import android.content.DialogInterface
 import android.util.Log
 import android.view.LayoutInflater
@@ -19,6 +20,8 @@ import kotlin.math.hypot
 
 class ShoppingItemsAdapter(private val shoppingList: MutableList<ShoppingItem>) : RecyclerView.Adapter<ShoppingItemsAdapter.ViewHolder>(){
 
+    private lateinit var parentContext: View
+
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val shoppingItem : TextView = view.findViewById(R.id.txtItem)
         val shoppingQuantity : TextView = view.findViewById(R.id.txtQuantity)
@@ -33,6 +36,8 @@ class ShoppingItemsAdapter(private val shoppingList: MutableList<ShoppingItem>) 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
+        parentContext = parent
+
         val view = LayoutInflater.from(parent.context).inflate(R.layout.shopping_item, parent, false)
 
         return ViewHolder(view)
@@ -43,7 +48,7 @@ class ShoppingItemsAdapter(private val shoppingList: MutableList<ShoppingItem>) 
         holder.shoppingQuantity.text = shoppingList[position].quantity.toString()
 
         holder.delete.setOnClickListener {
-
+            basicAlert(parentContext)
             shoppingList.removeAt(position)
             notifyItemRemoved(position)
             notifyItemRangeChanged(position, getItemCount())
@@ -63,7 +68,10 @@ class ShoppingItemsAdapter(private val shoppingList: MutableList<ShoppingItem>) 
                     _, _ ->
                 Toast.makeText(view.context, "REMOVE", Toast.LENGTH_SHORT).show()
             })
-            setNegativeButton(R.string.cancel, negativeButtonClick)
+            setNegativeButton(R.string.cancel, DialogInterface.OnClickListener{
+                    _, _ ->
+                Toast.makeText(view.context, "CANCEL", Toast.LENGTH_SHORT).show()
+            })
             setIcon(android.R.drawable.dialog_holo_light_frame)
         }
 
@@ -71,13 +79,4 @@ class ShoppingItemsAdapter(private val shoppingList: MutableList<ShoppingItem>) 
         alertDialog.show()
     }
 
-//    val positiveButtonClick = {
-//            dialog: DialogInterface, which: Int ->
-//            Toast.makeText(view.context, "REMOVE", Toast.LENGTH_SHORT).show()
-//    }
-
-    val negativeButtonClick = {
-            dialog: DialogInterface, which: Int ->
-            Toast.makeText(view.context, "CANCEL", Toast.LENGTH_SHORT).show()
-    }
 }

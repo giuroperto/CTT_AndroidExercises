@@ -83,31 +83,6 @@ class MainActivity : AppCompatActivity() {
         shopQt.text.clear()
     }
 
-//    private companion object {
-//        fun basicAlert(view: View) {
-//            val alertDialogBuilder = android.app.AlertDialog.Builder()
-//
-//            with(alertDialogBuilder) {
-//                setMessage(R.string.dialog_remove)
-//                setPositiveButton(R.string.remove,  positiveButtonClick)
-//                setNegativeButton(R.string.cancel, negativeButtonClick)
-//                setIcon(android.R.drawable.dialog_holo_light_frame)
-//            }
-//
-//            val alertDialog = alertDialogBuilder.create()
-//            alertDialog.show()
-//        }
-//
-//        val positiveButtonClick = {
-//                dialog: DialogInterface, which: Int ->
-//            Toast.makeText(, "REMOVE", Toast.LENGTH_SHORT).show()
-//        }
-//
-//        val negativeButtonClick = {
-//                dialog: DialogInterface, which: Int ->
-//            Toast.makeText(, "CANCEL", Toast.LENGTH_SHORT).show()
-//        }
-//    }
 }
 
 
