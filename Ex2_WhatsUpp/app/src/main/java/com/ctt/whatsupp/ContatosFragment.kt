@@ -39,7 +39,9 @@ class ContatosFragment : Fragment() {
                 val listaConversa = mutableListOf<Contato>(
                 Contato(imagem = null, nome = "Giulia", ultimaMensagem = "EEVEE!!!", horarioMensagem = "08:01 PM"),
                 Contato(imagem = null, nome = "Henrique", ultimaMensagem = "PIKACHU!!!", horarioMensagem = "08:02 PM"),
-                Contato(imagem = null, nome = "Daniel", ultimaMensagem = "ORCS!!!", horarioMensagem = "08:03 PM")
+                Contato(imagem = null, nome = "Daniel", ultimaMensagem = "ORCS!!!", horarioMensagem = "08:03 PM"),
+                Contato(imagem = null, nome = "Afonso", ultimaMensagem = "ORCS!!!", horarioMensagem = "08:03 PM"),
+                Contato(imagem = null, nome = "Cristina", ultimaMensagem = "ORCS!!!", horarioMensagem = "08:03 PM")
         )
 
         val rvConversas = view.findViewById<RecyclerView>(R.id.listaContatos)

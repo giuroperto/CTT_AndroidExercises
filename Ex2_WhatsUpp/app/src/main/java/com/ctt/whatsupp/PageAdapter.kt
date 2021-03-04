@@ -32,9 +32,9 @@ class PageAdapter(fm: FragmentManager, pageAdapterContext: Context) : FragmentPa
 //            CONVERSAS
             0 -> ContatosFragment()
 //            STATUS
-            1 -> ContatosFragment()
+            1 -> StatusFragment()
 //            CHAMADAS
-            2 -> ContatosFragment()
+            2 -> CallsFragment()
             else -> ContatosFragment()
         }
     }
@@ -42,8 +42,8 @@ class PageAdapter(fm: FragmentManager, pageAdapterContext: Context) : FragmentPa
     override fun getPageTitle(position: Int): CharSequence? {
         return when(position) {
             0 -> contextHere.getString(R.string.conversas)
-            1 -> "Status"
-            2 -> "Chamadas"
+            1 -> contextHere.getString(R.string.status)
+            2 -> contextHere.getString(R.string.chamadas)
             else -> super.getPageTitle(position)
 //            poderia dar um return null pois vai acabar a lista, mas eh boa praticar utilizar o metodo
         }

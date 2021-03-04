@@ -4,8 +4,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="conversas">Conversas</string>
-    <string name="status">Status</string>
-    <string name="chamadas">Chamadas</string>
+    <string name="conversas">CHATS</string>
+    <string name="status">STATUS</string>
+    <string name="chamadas">CALLS</string>
 
 </resources>

@@ -10,4 +10,11 @@
     <color name="darkGray">#777777</color>
     <color name="tituloContato">#000000</color>
     <color name="white">#FFFFFFFF</color>
+
+<!--    WHATSAPP PALETTE -->
+    <color name="whats_green">#25d366</color>
+    <color name="darker_green">#075e54</color>
+    <color name="teal_green">#128c7e</color>
+    <color name="light_green">#dcf8c6</color>
+    <color name="blue">#34b7f1</color>
 </resources>
