@@ -25,7 +25,18 @@ class CallsAdapter(private val callsList: MutableList<Call>) : RecyclerView.Adap
     override fun onBindViewHolder(holder: CallsAdapter.ViewHolder, position: Int) {
         holder.contactName.text = callsList[position].name
         holder.contactTime.text = callsList[position].time
-//        holder.txtName.text = callsList[position].picture
+
+        if (callsList[position].picture == null) {
+            when(callsList[position].name) {
+                "Giulia" -> holder.contactImg.setImageResource(R.drawable.ic_elf)
+                "Henrique" -> holder.contactImg.setImageResource(R.drawable.ic_zombie)
+                "Afonso" -> holder.contactImg.setImageResource(R.drawable.ic_pirate)
+                "Cristina" -> holder.contactImg.setImageResource(R.drawable.ic_tree)
+                "Daniel" -> holder.contactImg.setImageResource(R.drawable.ic_orc)
+                else -> holder.contactImg.setImageResource(R.drawable.ic_pirate)
+            }
+        }
+
 //        holder.txtName.text = callsList[position].arrow
     }
 

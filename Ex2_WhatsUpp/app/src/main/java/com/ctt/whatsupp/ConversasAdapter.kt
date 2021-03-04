@@ -1,8 +1,10 @@
 package com.ctt.whatsupp
 
+import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.ctt.whatsupp.model.Contato
@@ -33,6 +35,7 @@ class ConversasAdapter(private val listaContatos: MutableList<Contato>) : Recycl
     // tudo que eh componente grafico vem de view
 
         val nomeContato : TextView = view.findViewById(R.id.txtContato)
+        val imgContato : ImageView = view.findViewById(R.id.imgContato)
         val ultimaMensagem : TextView = view.findViewById(R.id.txtMensagem)
         val horaMensagem : TextView = view.findViewById(R.id.txtHorario)
 
@@ -68,6 +71,18 @@ class ConversasAdapter(private val listaContatos: MutableList<Contato>) : Recycl
         holder.nomeContato.text = listaContatos[position].nome
         holder.ultimaMensagem.text = listaContatos[position].ultimaMensagem
         holder.horaMensagem.text = listaContatos[position].horarioMensagem
+
+        if (listaContatos[position].imagem == null) {
+            when(listaContatos[position].nome) {
+                "Giulia" -> holder.imgContato.setImageResource(R.drawable.ic_elf)
+                "Henrique" -> holder.imgContato.setImageResource(R.drawable.ic_zombie)
+                "Afonso" -> holder.imgContato.setImageResource(R.drawable.ic_pirate)
+                "Cristina" -> holder.imgContato.setImageResource(R.drawable.ic_tree)
+                "Daniel" -> holder.imgContato.setImageResource(R.drawable.ic_orc)
+                else -> holder.imgContato.setImageResource(R.drawable.ic_pirate)
+            }
+        }
+
     }
 
     //        serve apenas para ter o controle do tamanho da nossa lista

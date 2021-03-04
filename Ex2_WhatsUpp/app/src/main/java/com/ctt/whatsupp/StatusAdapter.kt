@@ -26,7 +26,18 @@ class StatusAdapter(private var statusList: MutableList<Status>) : RecyclerView.
     override fun onBindViewHolder(holder: StatusAdapter.ViewHolder, position: Int) {
         holder.contactName.text = statusList[position].name
         holder.contactTime.text = statusList[position].time
-//        holder.contactImg.text = statusList[position].picture
+
+        if (statusList[position].picture == null) {
+            when(statusList[position].name) {
+                "Giulia" -> holder.contactImg.setImageResource(R.drawable.ic_elf)
+                "Henrique" -> holder.contactImg.setImageResource(R.drawable.ic_zombie)
+                "Afonso" -> holder.contactImg.setImageResource(R.drawable.ic_pirate)
+                "Cristina" -> holder.contactImg.setImageResource(R.drawable.ic_tree)
+                "Daniel" -> holder.contactImg.setImageResource(R.drawable.ic_orc)
+                else -> holder.contactImg.setImageResource(R.drawable.ic_pirate)
+            }
+        }
+
     }
 
     override fun getItemCount(): Int {
