@@ -2,16 +2,27 @@ package com.ctt.whatsupp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.AbsListView
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.ctt.whatsupp.model.Contato
+import androidx.viewpager.widget.ViewPager
+import com.google.android.material.tabs.TabLayout
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+//        1. Vinculamos as fragments a viewpager
+
+//        vincular tablayout e viewpager -> para vincular as tabs
+        val tabLayout = findViewById<TabLayout>(R.id.tabLayout)
+        val viewPager = findViewById<ViewPager>(R.id.viewPager)
+
+//        funcao do android para pegar o gerenciador de fragments -> suporte -> questoes de compatibilidade
+//        primeiro o adapter pra arrumar o viewpager -> criar fragments e organizar
+        viewPager.adapter = PageAdapter(supportFragmentManager, this)
+//        depois linka com as tabs
+        tabLayout.setupWithViewPager(viewPager)
+
+//        para organizar por tabs, ir no adapter e criar um novo metodo
 
     }
 }
@@ -25,3 +36,6 @@ class MainActivity : AppCompatActivity() {
 // 6. VINCULE OS DADOS PASSADOS VIA ADAPTER AOS COMPONENTES VIA ONBINDVIEWHOLDER
 // 7. VINCULE O ADAPTER DA SUA RECYCLERVIEW A UMA INSTANCIA DA SUA CLASSE ADAPTER COM SEUS DADOS
 // 8. VINCULE UM GERENCIADOR DE LAYOUT (LAYOUT MANAGER) A SUA RECYCLERVIEW
+
+// viewpager funciona como o recycler view -> forma de incluir fragments de maneira dinamica no meu app
+// gerencia as fragments

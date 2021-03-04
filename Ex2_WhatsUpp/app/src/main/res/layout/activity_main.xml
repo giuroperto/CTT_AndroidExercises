@@ -7,7 +7,27 @@
     tools:context=".MainActivity"
     >
 
-    <include android:layout="@layout/fragment_contatos" />
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+<!--        adicionar um gerenciados de conteudo -->
+
+<!--        eh como um include mas dinamico, podemos mexer no codigo etc -->
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+
+<!--    <include android:layout="@layout/fragment_contatos" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
