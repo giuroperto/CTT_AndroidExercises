@@ -37,11 +37,11 @@ class ContatosFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
                 val listaConversa = mutableListOf<Contato>(
-                Contato(imagem = null, nome = "Giulia", ultimaMensagem = "EEVEE!!!", horarioMensagem = "08:01 PM"),
-                Contato(imagem = null, nome = "Henrique", ultimaMensagem = "PIKACHU!!!", horarioMensagem = "08:02 PM"),
-                Contato(imagem = null, nome = "Daniel", ultimaMensagem = "ORCS!!!", horarioMensagem = "08:03 PM"),
-                Contato(imagem = null, nome = "Afonso", ultimaMensagem = "ORCS!!!", horarioMensagem = "08:03 PM"),
-                Contato(imagem = null, nome = "Cristina", ultimaMensagem = "ORCS!!!", horarioMensagem = "08:03 PM")
+                Contato(imagem = null, nome = "Giulia", ultimaMensagem = "Êl síla erin lû e-govaned vîn.", horarioMensagem = "08:01 PM"),
+                Contato(imagem = null, nome = "Henrique", ultimaMensagem = "Ooo gRRr nuurg ahHH aaaraaa RrRaAa!!", horarioMensagem = "08:02 PM"),
+                Contato(imagem = null, nome = "Daniel", ultimaMensagem = "Lok'vadnod", horarioMensagem = "08:03 PM"),
+                Contato(imagem = null, nome = "Afonso", ultimaMensagem = "Aaaarrrrgggghhhh! Ahoy, Matey!", horarioMensagem = "08:03 PM"),
+                Contato(imagem = null, nome = "Cristina", ultimaMensagem = "Taurelilómëa-tumbalemorna Tumbaletaurëa Lómëanor", horarioMensagem = "08:03 PM")
         )
 
         val rvConversas = view.findViewById<RecyclerView>(R.id.listaContatos)
