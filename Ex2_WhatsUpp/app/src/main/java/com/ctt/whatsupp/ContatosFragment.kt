@@ -36,6 +36,7 @@ class ContatosFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+                // DADOS
                 val listaConversa = mutableListOf<Contato>(
                 Contato(imagem = null, nome = "Giulia", ultimaMensagem = "Êl síla erin lû e-govaned vîn.", horarioMensagem = "08:01 PM"),
                 Contato(imagem = null, nome = "Henrique", ultimaMensagem = "Ooo gRRr nuurg ahHH aaaraaa RrRaAa!!", horarioMensagem = "08:02 PM"),
@@ -52,6 +53,18 @@ class ContatosFragment : Fragment() {
 
 //    para indicar o contexto para o layoutmanager -> funcao -> this nao vai funcionar pois referira ao fragment
 //    nao sabemos em que activity estamos -> fragment pode ser colocada em diversos lugares -> utilizar funcao requireContext()
+
+//    3 tipos de layout manager para recycler view em Android
+//    1. LinerLayout = Dispor os elementos em coluna unica na vertical ou horizontal
+//    2. GridLayout = Dispor os elementos em mais de uma coluna, como uma tabela
+//    3. StaggeredGridLayout = Dispor elementos em mais de uma coluna, sem tamanho fixo
+
+//    1. indicar contexto e qual a orientacao -> V ou H -> padrao eh vertical (segundo parametro)
+//    rvConversas.layoutManager = LinearLayoutManager(this)
+//    GridLayout -> tamanho fixo
+//    GridLayoutManager(this, 2) -> numero de colunas
+//    Staggered -> varia de acordo com o elemento
+//    StaggeredGridLayout(2, StaggeredGridLayoutManager.HORIZONTAL) -> numero de colunas e orientacao
         rvConversas.layoutManager = LinearLayoutManager(requireContext())
 
     }

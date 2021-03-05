@@ -38,7 +38,6 @@ class ConversasAdapter(private val listaContatos: MutableList<Contato>) : Recycl
         val imgContato : ImageView = view.findViewById(R.id.imgContato)
         val ultimaMensagem : TextView = view.findViewById(R.id.txtMensagem)
         val horaMensagem : TextView = view.findViewById(R.id.txtHorario)
-
     }
 
 //    quando criar o layout da lista, ele retorna ja preenchido
@@ -83,13 +82,13 @@ class ConversasAdapter(private val listaContatos: MutableList<Contato>) : Recycl
             }
         }
 
+//    holder[position].image?.let{}
+//    it -> auto referencia
+//        holder.fotoContato.setImageBitmap(it)
     }
 
     //        serve apenas para ter o controle do tamanho da nossa lista
-    override fun getItemCount(): Int {
-        return listaContatos.size
-    }
-
+    override fun getItemCount(): Int = listaContatos.size
 }
 
 //boa pratica -> bind view

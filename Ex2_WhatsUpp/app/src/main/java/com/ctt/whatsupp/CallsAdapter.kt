@@ -37,7 +37,11 @@ class CallsAdapter(private val callsList: MutableList<Call>) : RecyclerView.Adap
             }
         }
 
-//        holder.txtName.text = callsList[position].arrow
+        if (callsList[position].incoming) {
+            holder.ArrowImg.setImageResource(R.drawable.ic_left_down)
+        } else {
+            holder.ArrowImg.setImageResource(R.drawable.ic_right_up)
+        }
     }
 
     override fun getItemCount(): Int {
