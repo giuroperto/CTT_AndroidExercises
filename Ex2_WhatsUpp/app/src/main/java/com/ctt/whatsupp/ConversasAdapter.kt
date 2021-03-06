@@ -47,6 +47,7 @@ class ConversasAdapter(private val listaContatos: MutableList<Contato>) : Recycl
     fun adicionarContato(novoContato: Contato) {
 //        Adiciono um novo contato
         listaContatos.add(novoContato)
+//        MainActivity.listaConversaEstatica.add()
 //        NOTIFICO o Adapter que o dataset (fonte de dados) foi alterada e que ele precisa criar o "layout" dele
         notifyDataSetChanged()
     }

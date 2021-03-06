@@ -79,4 +79,29 @@ class ContatosFragment : Fragment() {
 
     }
 
+//    para voltar a tela anterior -> ao apertar o botao de voltar
+//    override fun onBackPressed() {
+//        super.onBackPressed()
+//        startActivity()
+//    }
+
+//    para acessar metodos e atributos sem precisar instanciar
+//     JAVA -> static
+//    METODOS E ATRIBUTOS ESTATICOS
+//    KOTLIN -> COMPANION OBJECT
+
+//    boas praticas -> dados fixos, constantes
+//    variavel global a nivel do projeto
+//    companion object {
+//        ESTATICOS -> acessar de onde quiser sem precisar instanciar -> criar obj a partir de uma classe
+//        val listaConversaEstatica = mutableListOf<Contato>()
+
+//    fun calcular() {}
+
+//    const val CHAVE_INTENT = "chaveIntent"
+
+//    nao pode ser usado recebendo dado de servidor
+
+//    }
+
 }
