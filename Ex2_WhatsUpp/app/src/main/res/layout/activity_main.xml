@@ -83,6 +83,16 @@
 
 <!--    <include android:layout="@layout/fragment_contatos" />-->
 
+<!--    <Button-->
+<!--        android:id="@+id/btnAddContato"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="24dp"-->
+<!--        android:text="Add Contato"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--erro de tela cinza, nao reconhece -> importar dependencia no build graddle -->

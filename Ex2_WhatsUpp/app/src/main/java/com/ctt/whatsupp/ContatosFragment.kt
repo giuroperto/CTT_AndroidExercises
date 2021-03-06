@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ctt.whatsupp.model.Contato
@@ -49,7 +50,16 @@ class ContatosFragment : Fragment() {
     //        vinculando adapter a recycler view -> gerenciador de dados -> vincula os dois
 
         val adapterContato = ConversasAdapter(listaConversa)
+
         rvConversas.adapter = adapterContato
+
+//        val addContato = view.findViewById<Button>(R.id.btnAddContato)
+//    para utilizar a instancia criada ali em cima
+//        addContato.setOnClickListener{
+//            adapterContato.adicionarContato(
+//                    Contato(imagem = null, nome = "Cristina", ultimaMensagem = "Taurelilómëa-tumbalemorna Tumbaletaurëa Lómëanor", horarioMensagem = "08:05 PM")
+//            )
+//        }
 
 //    para indicar o contexto para o layoutmanager -> funcao -> this nao vai funcionar pois referira ao fragment
 //    nao sabemos em que activity estamos -> fragment pode ser colocada em diversos lugares -> utilizar funcao requireContext()

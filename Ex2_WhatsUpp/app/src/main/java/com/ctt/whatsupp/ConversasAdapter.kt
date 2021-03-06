@@ -43,6 +43,20 @@ class ConversasAdapter(private val listaContatos: MutableList<Contato>) : Recycl
 //    quando criar o layout da lista, ele retorna ja preenchido
 //    metodo abstrato pede que retorne um viewHolder
 //     equivalente ao onCreate da Activity -> no caso a nossa celula/item da recyclerview
+
+    fun adicionarContato(novoContato: Contato) {
+//        Adiciono um novo contato
+        listaContatos.add(novoContato)
+//        NOTIFICO o Adapter que o dataset (fonte de dados) foi alterada e que ele precisa criar o "layout" dele
+        notifyDataSetChanged()
+    }
+
+    fun fixarContato(contatinho: Contato) {
+//        para criar uma lista com os contatos a fixar
+//        adicionar ele na lista geral
+//        listaContatos.addAll()
+        listaContatos.add(0, contatinho)
+    }
     
     // qual a base da minha viewholder? item-contato -> metodo do adapter e nao do viewholder
     // view eh a instancia/criacao do R.layout.item_contato
