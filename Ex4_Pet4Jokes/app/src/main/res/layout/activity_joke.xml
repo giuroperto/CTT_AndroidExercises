@@ -41,7 +41,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgDog"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:textColor="@color/white"
         android:gravity="center_horizontal"
         tools:text="Roses are #ff0000, violets are #0000ff, I use hex codes, but I'd use RGB for you"
