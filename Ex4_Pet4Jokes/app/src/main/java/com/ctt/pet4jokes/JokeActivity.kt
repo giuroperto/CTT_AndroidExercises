@@ -7,6 +7,7 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.ctt.pet4jokes.databinding.ActivityJokeBinding
 import com.ctt.pet4jokes.databinding.ActivityPetBinding
+import com.ctt.pet4jokes.model.DogPicture
 import com.ctt.pet4jokes.model.Joke
 import com.ctt.pet4jokes.model.Pet
 import com.ctt.pet4jokes.services.JokesService
@@ -18,6 +19,7 @@ class JokeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityJokeBinding
     private lateinit var dog : Pet
+    private lateinit var dogImg : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +29,7 @@ class JokeActivity : AppCompatActivity() {
         setContentView(view)
 
         dog = intent.extras?.get("DOG") as Pet
+        dogImg = intent.extras?.get("DOGIMG") as String
 
 //        val Jokes: List<String> = listOf<String>(
 //            "\"Bugs come in through open Windows.\"",
@@ -61,9 +64,9 @@ class JokeActivity : AppCompatActivity() {
 //        now fetching joke from API
         getJokes()
 
-        if (dog.picture != null) {
+        if (dogImg != null) {
             Glide.with(this)
-                .load(dog.picture)
+                .load(dogImg)
                 .centerCrop()
                 .into(binding.imgDog)
         } else {

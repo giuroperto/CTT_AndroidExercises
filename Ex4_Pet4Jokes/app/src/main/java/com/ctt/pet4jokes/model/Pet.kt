@@ -5,4 +5,4 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class Pet (val name: String, val picture: String) : Parcelable
+data class Pet (val name: String) : Parcelable
