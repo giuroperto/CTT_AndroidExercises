@@ -47,6 +47,15 @@ class PetActivity : AppCompatActivity() {
         var count = 0
         var rand = (Math.random() * (11)).toInt()
 
+        if (dogImg != null) {
+            Glide.with(this)
+                .load(dogImg)
+                .centerCrop()
+                .into(imgDog)
+        } else {
+            binding.imgDog.setImageResource(R.mipmap.ic_main_dog2)
+        }
+
         imgDog.setOnClickListener() {
             if (count == rand) {
                 redirect(dog, dogImg)
