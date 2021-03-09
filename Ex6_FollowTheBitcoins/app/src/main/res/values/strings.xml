@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">FollowTheBitcoins</string>
+    <string name="app_title">Follow The Bitcoins</string>
+
+    <string name="app_dev">Developed by</string>
+    <string name="app_creator">Giulia Roperto</string>
+    <string name="app_ticker">INFOS</string>
+    <string name="app_orderbook">TRANSACOES</string>
+    <string name="app_trades">NEGOCIACOES</string>
 </resources>
