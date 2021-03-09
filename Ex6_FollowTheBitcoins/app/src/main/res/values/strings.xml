@@ -7,4 +7,7 @@
     <string name="app_ticker">INFOS</string>
     <string name="app_orderbook">TRANSACOES</string>
     <string name="app_trades">NEGOCIACOES</string>
+    <string name="app_dialogTitle">COINS</string>
+    <string name="app_dialogCancel">CANCEL</string>
+    <string name="app_dialogOk">OK</string>
 </resources>
