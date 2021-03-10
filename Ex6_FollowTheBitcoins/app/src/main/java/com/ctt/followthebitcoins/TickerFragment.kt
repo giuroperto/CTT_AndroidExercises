@@ -18,7 +18,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.text.DecimalFormat
+import java.text.SimpleDateFormat
 import java.time.format.DateTimeFormatter
+import java.util.*
+import kotlin.time.days
 
 class TickerFragment : Fragment() {
 
@@ -79,8 +82,6 @@ class TickerFragment : Fragment() {
 
                             val dec = DecimalFormat("#,###.##")
 
-//                            var formatter = DateTimeFormatter.ofPattern("dd-MMMM-yyyy")
-
                             val responseHigh: Double = responseData.ticker.high
                             val responseLow: Double = responseData.ticker.low
                             val responseVol: Double = responseData.ticker.vol
@@ -89,6 +90,10 @@ class TickerFragment : Fragment() {
                             val responseSell: Double = responseData.ticker.sell
                             val responseDate: Double = responseData.ticker.date
 
+                            val dateMiliseconds = responseDate * 1000
+                            val dateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm")
+                            val dateString = dateFormat.format(dateMiliseconds)
+                            val dateAdj = String.format(dateString)
 
                             infoHigh.text = dec.format(responseHigh).toString()
                             infoLow.text = dec.format(responseLow).toString()
@@ -96,7 +101,7 @@ class TickerFragment : Fragment() {
                             infoLast.text = dec.format(responseLast).toString()
                             infoBuy.text = dec.format(responseBuy).toString()
                             infoSell.text = dec.format(responseSell).toString()
-//                            infoDate.text = responseDate.format(formatter).toString()
+                            infoDate.text = dateAdj
                         }
                     }
                 }
