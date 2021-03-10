@@ -3,9 +3,17 @@ package com.ctt.followthebitcoins
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
+import com.ctt.followthebitcoins.model.Coin
+import com.ctt.followthebitcoins.services.TickerService
 import com.google.android.material.tabs.TabLayout
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class CoinActivity : AppCompatActivity() {
+
+//    val selectedCoin = intent.extras?.get("COIN") as Coin
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_coin)

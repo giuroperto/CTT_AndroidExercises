@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".TickerFragment"
+    android:background="@color/light_gray"
+    >
+
+    <LinearLayout
+        android:id="@+id/llCoinName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="20dp"
+        >
+
+        <TextView
+            android:id="@+id/txtAcr"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@color/deep_space_green"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:paddingVertical="10dp"
+            tools:text="BTC"
+            />
+
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@color/deep_space_green"
+            android:textAlignment="textStart"
+            android:textSize="20sp"
+            android:paddingStart="30dp"
+            android:textColor="@color/white"
+            android:paddingVertical="10dp"
+            tools:text="Bitcoin"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llCoinInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/llCoinName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingHorizontal="20dp"
+        android:paddingBottom="20dp"
+        >
+
+        <LinearLayout
+            android:id="@+id/llHigh"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:id="@+id/txtHighLabel"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@color/viridian_green"
+                android:text="@string/app_coinHigh"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:paddingVertical="10dp"
+                />
+
+            <TextView
+                android:id="@+id/txtHighValue"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@color/viridian_green"
+                android:textColor="@color/white"
+                tools:text="1000.00"
+                android:textAlignment="center"
+                android:paddingVertical="10dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llLow"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:id="@+id/txtLowLabel"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@color/viridian_green"
+                android:text="@string/app_coinLow"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:paddingVertical="10dp"
+                />
+
+            <TextView
+                android:id="@+id/txtLowValue"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@color/viridian_green"
+                android:textColor="@color/white"
+                tools:text="1000.00"
+                android:textAlignment="center"
+                android:paddingVertical="10dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llVol"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:id="@+id/txtVolLabel"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@color/viridian_green"
+                android:text="@string/app_coinVol"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:paddingVertical="10dp"
+                />
+
+            <TextView
+                android:id="@+id/txtVolValue"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@color/viridian_green"
+                android:textColor="@color/white"
+                tools:text="1000.00"
+                android:textAlignment="center"
+                android:paddingVertical="10dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llLast"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:id="@+id/txtLastLabel"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@color/viridian_green"
+                android:text="@string/app_coinLast"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:paddingVertical="10dp"
+                />
+
+            <TextView
+                android:id="@+id/txtLastValue"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@color/viridian_green"
+                android:textColor="@color/white"
+                tools:text="1000.00"
+                android:textAlignment="center"
+                android:paddingVertical="10dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llBuy"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:id="@+id/txtBuyLabel"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@color/viridian_green"
+                android:text="@string/app_coinBuy"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:paddingVertical="10dp"
+                />
+
+            <TextView
+                android:id="@+id/txtBuyValue"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@color/viridian_green"
+                android:textColor="@color/white"
+                tools:text="1000.00"
+                android:textAlignment="center"
+                android:paddingVertical="10dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llSell"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:id="@+id/txtSellLabel"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@color/viridian_green"
+                android:text="@string/app_coinSell"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:paddingVertical="10dp"
+                />
+
+            <TextView
+                android:id="@+id/txtSellValue"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@color/viridian_green"
+                android:textColor="@color/white"
+                tools:text="1000.00"
+                android:textAlignment="center"
+                android:paddingVertical="10dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llDate"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:id="@+id/txtDateLabel"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@color/viridian_green"
+                android:text="@string/app_coinDate"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:paddingVertical="10dp"
+                />
+
+            <TextView
+                android:id="@+id/txtDateValue"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@color/viridian_green"
+                android:textColor="@color/white"
+                tools:text="1000.00"
+                android:textAlignment="center"
+                android:paddingVertical="10dp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--    Resultado-->
+<!--    high: Maior preço unitário de negociação das últimas 24 horas.-->
+<!--    Tipo: Decimal-->
+<!--    low: Menor preço unitário de negociação das últimas 24 horas.-->
+<!--    Tipo: Decimal-->
+<!--    vol: Quantidade negociada nas últimas 24 horas.-->
+<!--    Tipo: Decimal-->
+<!--    last: Preço unitário da última negociação.-->
+<!--    Tipo: Decimal-->
+<!--    buy: Maior preço de oferta de compra das últimas 24 horas.-->
+<!--    Tipo: Decimal-->
+<!--    sell: Menor preço de oferta de venda das últimas 24 horas.-->
+<!--    Tipo: Decimal-->
+<!--    date: Data e hora da informação em Era Unix-->
+<!--    Tipo: Inteiro-->

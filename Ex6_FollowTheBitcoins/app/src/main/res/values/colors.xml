@@ -16,5 +16,6 @@
     <color name="app_bordeau">#2F0601</color>
     <color name="light_gray">#CCCCCC</color>
     <color name="jungle_green">#2CAA8A</color>
+    <color name="viridian_green">#32908F</color>
     <color name="deep_space_green">#446568</color>
 </resources>

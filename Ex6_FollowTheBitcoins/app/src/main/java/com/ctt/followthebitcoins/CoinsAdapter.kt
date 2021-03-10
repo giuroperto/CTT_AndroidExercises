@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.ctt.followthebitcoins.MainActivity.Companion.globalCoin
 import com.ctt.followthebitcoins.model.Coin
 
 class CoinsAdapter(private val coinsList: MutableList<Coin>) : RecyclerView.Adapter<CoinsAdapter.ViewHolder>() {
@@ -33,7 +34,11 @@ class CoinsAdapter(private val coinsList: MutableList<Coin>) : RecyclerView.Adap
         holder.coinName.text = coinsList[position].name
 
         holder.itemView.setOnClickListener{
-            redirect(coinsList[position])
+
+            val selectedCoin = coinsList[position]
+            globalCoin = selectedCoin
+
+            redirect(selectedCoin)
         }
     }
 

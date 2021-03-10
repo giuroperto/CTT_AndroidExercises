@@ -10,4 +10,12 @@
     <string name="app_dialogTitle">COINS</string>
     <string name="app_dialogCancel">CANCEL</string>
     <string name="app_dialogOk">OK</string>
+
+    <string name="app_coinHigh">Highest Price: </string>
+    <string name="app_coinLow">Lowest Price: </string>
+    <string name="app_coinVol">Quantity Sold: </string>
+    <string name="app_coinLast">Last Price: </string>
+    <string name="app_coinBuy">Highest Buy Price: </string>
+    <string name="app_coinSell">Highest Sell Price: </string>
+    <string name="app_coinDate">Date: </string>
 </resources>

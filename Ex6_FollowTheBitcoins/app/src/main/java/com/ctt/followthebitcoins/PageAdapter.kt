@@ -1,9 +1,11 @@
 package com.ctt.followthebitcoins
 
 import android.content.Context
+import android.text.method.TimeKeyListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+//import com.ctt.followthebitcoins.model.Ticker
 
 class PageAdapter(fm: FragmentManager, pageAdapterContext: Context) : FragmentPagerAdapter(fm){
 
@@ -16,13 +18,13 @@ class PageAdapter(fm: FragmentManager, pageAdapterContext: Context) : FragmentPa
     override fun getItem(position: Int): Fragment {
         return when(position) {
 //            TICKER
-            0 -> CoinsFragment()
+            0 -> TickerFragment()
 //            ORDERBOOK
-            1 -> CoinsFragment()
+            1 -> OrderbookFragment()
 //            TRADES
-            2 -> CoinsFragment()
+            2 -> TradesFragment()
 //            DEFAULT
-            else -> CoinsFragment()
+            else -> TickerFragment()
         }
     }
 

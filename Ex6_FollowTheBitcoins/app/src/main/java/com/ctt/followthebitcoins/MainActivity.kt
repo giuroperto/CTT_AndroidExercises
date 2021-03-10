@@ -10,6 +10,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.tabs.TabLayout
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -53,6 +54,19 @@ class MainActivity : AppCompatActivity() {
         rvCoins.layoutManager = LinearLayoutManager(this)
 
 //        chooseCoin()
+    }
+
+    companion object {
+
+        var globalCoin: Coin = Coin("BTC", "Bitcoin")
+
+//        fun setCoin(coin: Coin): Coin {
+//            return coin
+//        }
+//
+//        fun getCoin() {
+//            return selectedCoin
+//        }
     }
 
 
