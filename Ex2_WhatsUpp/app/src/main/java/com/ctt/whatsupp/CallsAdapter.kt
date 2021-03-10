@@ -38,9 +38,17 @@ class CallsAdapter(private val callsList: MutableList<Call>) : RecyclerView.Adap
         }
 
         if (callsList[position].incoming) {
-            holder.ArrowImg.setImageResource(R.drawable.ic_left_down)
+            if (callsList[position].successful) {
+                holder.ArrowImg.setImageResource(R.drawable.ic_left_down_green)
+            } else {
+                holder.ArrowImg.setImageResource(R.drawable.ic_left_down_red)
+            }
         } else {
-            holder.ArrowImg.setImageResource(R.drawable.ic_right_up)
+            if (callsList[position].successful) {
+                holder.ArrowImg.setImageResource(R.drawable.ic_right_up_green)
+            } else {
+                holder.ArrowImg.setImageResource(R.drawable.ic_right_up_red)
+            }
         }
     }
 
@@ -48,7 +56,3 @@ class CallsAdapter(private val callsList: MutableList<Call>) : RecyclerView.Adap
         return callsList.size
     }
 }
-
-
-// TODO: 04/03/2021 add picture 
-// TODO: 04/03/2021 add arrow to model

@@ -23,19 +23,19 @@ class CallsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val callsList = mutableListOf<Call>(
-            Call(picture = null, name = "Giulia", time = "27 minutes ago", incoming = true),
-            Call(picture = null, name = "Henrique", time = "28 minutes ago", incoming = false),
-            Call(picture = null, name = "Henrique", time = "29 minutes ago", incoming = false),
-            Call(picture = null, name = "Afonso", time = "29 minutes ago", incoming = false),
-            Call(picture = null, name = "Cristina", time = "30 minutes ago", incoming = true),
-            Call(picture = null, name = "Henrique", time = "32 minutes ago", incoming = true),
-            Call(picture = null, name = "Henrique", time = "1h ago", incoming = true),
-            Call(picture = null, name = "Daniel", time = "2h ago", incoming = false),
-            Call(picture = null, name = "Henrique", time = "3h ago", incoming = true),
-            Call(picture = null, name = "Henrique", time = "4h ago", incoming = true),
-            Call(picture = null, name = "Henrique", time = "5h ago", incoming = true),
-            Call(picture = null, name = "Henrique", time = "6h ago", incoming = true),
-            Call(picture = null, name = "Henrique", time = "7h ago", incoming = true),
+            Call(picture = null, name = "Giulia", time = "27 minutes ago", incoming = true, successful = true),
+            Call(picture = null, name = "Henrique", time = "28 minutes ago", incoming = false, successful = false),
+            Call(picture = null, name = "Henrique", time = "29 minutes ago", incoming = false, successful = true),
+            Call(picture = null, name = "Afonso", time = "29 minutes ago", incoming = false, successful = true),
+            Call(picture = null, name = "Cristina", time = "30 minutes ago", incoming = true, successful = true),
+            Call(picture = null, name = "Henrique", time = "32 minutes ago", incoming = true, successful = true),
+            Call(picture = null, name = "Henrique", time = "1h ago", incoming = true, successful = true),
+            Call(picture = null, name = "Daniel", time = "2h ago", incoming = false, successful = true),
+            Call(picture = null, name = "Henrique", time = "3h ago", incoming = true, successful = false),
+            Call(picture = null, name = "Henrique", time = "4h ago", incoming = true, successful = false),
+            Call(picture = null, name = "Henrique", time = "5h ago", incoming = true, successful = false),
+            Call(picture = null, name = "Henrique", time = "6h ago", incoming = true, successful = false),
+            Call(picture = null, name = "Henrique", time = "7h ago", incoming = true, successful = false),
         )
 
         val rvCalls = view.findViewById<RecyclerView>(R.id.rvCallsList)

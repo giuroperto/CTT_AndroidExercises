@@ -49,7 +49,7 @@
             android:id="@+id/imgArrow"
             android:layout_width="10dp"
             android:layout_height="10dp"
-            android:src="@drawable/ic_left_down"
+            android:src="@drawable/ic_left_down_red"
             android:layout_gravity="center"
             />
 
