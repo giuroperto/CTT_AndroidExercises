@@ -8,8 +8,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.ctt.followthebitcoins.model.Order
 import com.ctt.followthebitcoins.model.OrderBook
+import java.text.DecimalFormat
 
-class OrderbookAdapter(private var orderList: MutableList<Order>, private var orderType: String) : RecyclerView.Adapter<OrderbookAdapter.ViewHolder>() {
+class OrderbookAdapter(private var orderList: MutableList<Order>) : RecyclerView.Adapter<OrderbookAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val orderQuantity: TextView = view.findViewById(R.id.txtQttValue)
@@ -24,31 +25,12 @@ class OrderbookAdapter(private var orderList: MutableList<Order>, private var or
 
     override fun onBindViewHolder(holder: OrderbookAdapter.ViewHolder, position: Int) {
 
-        var filteredArray: Array<Order>
-
-        if (orderType == "asks") {
-            filteredArray = orderList.filter { order ->
-                order.type == "asks"
-            }.toTypedArray()
-        } else if (orderType == "bids") {
-            filteredArray = orderList.filter { order ->
-                order.type == "bids"
-            }.toTypedArray()
-        } else {
-            Log.e("ORDER_TYPE_ERROR", "Something went wrong... Try again!")
-        }
+        val dec = DecimalFormat("#,###.##")
 
         Log.e("Params", orderList.toString())
-        Log.e("Params", orderType)
 
-        if (orderType == "asks") {
-            holder.orderPrice.text = orderList[position].toString()
-            holder.orderQuantity.text = orderList[position].toString()
-        } else {
-            holder.orderPrice.text = orderList[position].toString()
-            holder.orderQuantity.text = orderList[position].toString()
-        }
-
+        holder.orderPrice.text = dec.format(orderList[position]).toString()
+        holder.orderQuantity.text = dec.format(orderList[position]).toString()
     }
 
     override fun getItemCount(): Int {
@@ -56,7 +38,3 @@ class OrderbookAdapter(private var orderList: MutableList<Order>, private var or
     }
 
 }
-
-
-//                            infoSell.text = dec.format(responseSell).toString()
-//                            val dec = DecimalFormat("#,###.##")

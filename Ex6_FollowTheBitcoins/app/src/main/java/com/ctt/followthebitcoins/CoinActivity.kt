@@ -12,8 +12,6 @@ import retrofit2.Response
 
 class CoinActivity : AppCompatActivity() {
 
-//    val selectedCoin = intent.extras?.get("COIN") as Coin
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_coin)
@@ -23,5 +21,9 @@ class CoinActivity : AppCompatActivity() {
 
         viewPager.adapter = PageAdapter(supportFragmentManager, this)
         tabLayout.setupWithViewPager(viewPager)
+    }
+
+    companion object {
+
     }
 }

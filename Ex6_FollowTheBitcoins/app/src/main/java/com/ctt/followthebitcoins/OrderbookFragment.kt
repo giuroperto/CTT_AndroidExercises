@@ -24,10 +24,13 @@ import java.text.SimpleDateFormat
 
 class OrderbookFragment : Fragment() {
 
-    private lateinit var orderList: MutableList<Order>
-    private lateinit var orderType: String
+    private var orderList: MutableList<Order> = mutableListOf()
+    private var orderType: String = ""
+
+    private lateinit var filteredList : MutableList<Order>
 
     private lateinit var toggleBtn : MaterialButtonToggleGroup
+    private lateinit var rvOrders : RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,28 +44,35 @@ class OrderbookFragment : Fragment() {
 
         getOrderbook()
 
-        orderList = mutableListOf()
-        orderType = "asks"
-
         toggleBtn = view.findViewById(R.id.tbOrders)
 
         toggleBtn.addOnButtonCheckedListener{
             toggleButton, checkedId, isChecked ->
 
-            if (checkedId == 2131230808 && isChecked) {
-                orderType = "asks"
-            } else if (checkedId == 2131230809 && isChecked) {
-                orderType = "bids"
+            if (isChecked) {
+                if (checkedId == 2131230808) {
+                    orderType = "asks"
+                    filterArray()
+                } else if (checkedId == 2131230809) {
+                    orderType = "bids"
+                    filterArray()
+                } else {
+                    // default
+                    orderType = "asks"
+                    filterArray()
+                }
             } else {
-                // default
-                orderType = "asks"
+                orderType =""
+                filterArray()
             }
         }
 
-        val rvOrders = view.findViewById<RecyclerView>(R.id.rvOrderList)
-        val adapterOrderBook = OrderbookAdapter(orderList, orderType)
-        rvOrders.adapter = adapterOrderBook
-        rvOrders.layoutManager = LinearLayoutManager(requireContext())
+        if (orderList.size > 1) {
+            rvOrders = view.findViewById(R.id.rvOrderList)
+            val adapterOrderBook = OrderbookAdapter(filteredList)
+            rvOrders.adapter = adapterOrderBook
+            rvOrders.layoutManager = LinearLayoutManager(requireContext())
+        }
     }
 
     fun getOrderbook() {
@@ -109,5 +119,28 @@ class OrderbookFragment : Fragment() {
 
                 }
         )
+    }
+
+    fun filterArray() {
+
+        Log.e("Filter", "inside filter")
+        Log.e("FilterType", orderType)
+
+        if (orderType == "asks") {
+            filteredList = orderList.filter{ order ->
+                order.type == "asks"
+            } as MutableList<Order>
+        } else if (orderType == "bids") {
+            filteredList = orderList.filter {
+                order ->
+                order.type == "bids"
+            } as MutableList<Order>
+        } else {
+            filteredList = orderList
+            Log.e("ORDER_TYPE_ERROR", "No selection was made... Try again!")
+        }
+
+        Log.e("FILTEREDLIST", filteredList.toString())
+
     }
 }
