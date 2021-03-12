@@ -18,4 +18,10 @@
     <string name="app_coinBuy">Highest Buy Price: </string>
     <string name="app_coinSell">Highest Sell Price: </string>
     <string name="app_coinDate">Date: </string>
+
+    <string name="app_orderQuantity">Quantity: </string>
+    <string name="app_orderPrice">Price: </string>
+
+    <string name="app_orderAsksBtn">Venda</string>
+    <string name="app_orderBidsBtn">Compra</string>
 </resources>

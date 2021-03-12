@@ -52,43 +52,12 @@ class MainActivity : AppCompatActivity() {
         rvCoins.adapter = adapterCoins
 
         rvCoins.layoutManager = LinearLayoutManager(this)
-
-//        chooseCoin()
     }
 
     companion object {
 
         var globalCoin: Coin = Coin("BTC", "Bitcoin")
 
-//        fun setCoin(coin: Coin): Coin {
-//            return coin
-//        }
-//
-//        fun getCoin() {
-//            return selectedCoin
-//        }
     }
-
-
-
-//    rvCoins.layoutManager = LinearLayoutManager(requireContext())
-
-//    fun chooseCoin() {
-//        val items = arrayOf("Item 1", "Item 2", "Item 3")
-//        val checkedItem = 1
-//
-//        MaterialAlertDialogBuilder(this)
-//            .setTitle(resources.getString(R.string.app_dialogTitle))
-//            .setNeutralButton(resources.getString(R.string.app_dialogCancel)) { dialog, which ->
-//                // Respond to neutral button press
-//            }
-//            .setPositiveButton(resources.getString(R.string.app_dialogOk)) { dialog, which ->
-//                // Respond to positive button press
-//            }
-//            // Single-choice items (initialized with checked item)
-//            .setSingleChoiceItems(items, checkedItem) { dialog, which ->
-//                // Respond to item chosen
-//            }
-//            .show()
-//    }
 }
+

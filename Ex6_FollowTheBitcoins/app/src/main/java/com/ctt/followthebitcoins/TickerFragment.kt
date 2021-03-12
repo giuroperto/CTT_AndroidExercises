@@ -107,24 +107,10 @@ class TickerFragment : Fragment() {
                 }
 
                 override fun onFailure(call: Call<TickerResponse>, t: Throwable) {
-                    Log.e("APIRESPONSEE", "${t.toString()}")
+                    Log.e("APIERROR", "${t.toString()}")
                 }
 
             }
         )
     }
 }
-
-//val statusList = mutableListOf<Status>(
-//    Status(picture = null, name = "Giulia", time = "20 minutes ago"),
-//    Status(picture = null, name = "Henrique", time = "25 minutes ago"),
-//    Status(picture = null, name = "Afonso", time = "40 minutes ago"),
-//    Status(picture = null, name = "Cristina", time = "1h ago"),
-//    Status(picture = null, name = "Daniel", time = "5h ago"),
-//)
-//
-//val rvStatus = view.findViewById<RecyclerView>(R.id.statusList)
-//
-//val adapterStatus = StatusAdapter(statusList)
-//rvStatus.adapter = adapterStatus
-//rvStatus.layoutManager = LinearLayoutManager(requireContext())
