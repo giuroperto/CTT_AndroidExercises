@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Course_Catalog</string>
+
+    <string name="app_title">Catalogo de Cursos</string>
+    <string name="app_main_welcome">Bem vindo! </string>
+    <string name="app_main_desc">Selecione o curso desejado</string>
+    <string-array name="courses_list">
+        <item>Engenharia Civil</item>
+        <item>Engenharia da Computacao</item>
+    </string-array>
+    <string name="btnMain">CONHECER</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

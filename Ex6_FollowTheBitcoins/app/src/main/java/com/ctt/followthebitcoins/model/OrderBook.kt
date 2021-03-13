@@ -1,6 +1,8 @@
 package com.ctt.followthebitcoins.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 data class OrderBook(
         val asks: Array<Array<Double>>,

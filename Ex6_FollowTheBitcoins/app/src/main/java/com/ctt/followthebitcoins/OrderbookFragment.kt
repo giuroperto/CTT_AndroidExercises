@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.ctt.followthebitcoins.CoinActivity.Companion.orderList
 import com.ctt.followthebitcoins.model.Order
 import com.ctt.followthebitcoins.model.OrderBook
 import com.ctt.followthebitcoins.model.TickerResponse
@@ -24,10 +25,9 @@ import java.text.SimpleDateFormat
 
 class OrderbookFragment : Fragment() {
 
-    private var orderList: MutableList<Order> = mutableListOf()
     private var orderType: String = ""
 
-    private lateinit var filteredList : MutableList<Order>
+    private var filteredList : MutableList<Order> = orderList
 
     private lateinit var toggleBtn : MaterialButtonToggleGroup
     private lateinit var rvOrders : RecyclerView
@@ -42,7 +42,7 @@ class OrderbookFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        getOrderbook()
+        Log.e("OrderList", orderList.toString())
 
         toggleBtn = view.findViewById(R.id.tbOrders)
 
@@ -67,58 +67,11 @@ class OrderbookFragment : Fragment() {
             }
         }
 
-        if (orderList.size > 1) {
-            rvOrders = view.findViewById(R.id.rvOrderList)
-            val adapterOrderBook = OrderbookAdapter(filteredList)
-            rvOrders.adapter = adapterOrderBook
-            rvOrders.layoutManager = LinearLayoutManager(requireContext())
-        }
-    }
+        rvOrders = view.findViewById(R.id.rvOrderList)
+        val adapterOrderBook = OrderbookAdapter(filteredList)
+        rvOrders.adapter = adapterOrderBook
+        rvOrders.layoutManager = LinearLayoutManager(requireContext())
 
-    fun getOrderbook() {
-
-        val retrofitClient = Network.RetrofitConfig("https://www.mercadobitcoin.net/api/")
-        val service = retrofitClient.create(OrderBookService::class.java)
-        val call = service.getOrderBook(MainActivity.globalCoin.acronym)
-
-        call.enqueue(
-                object : Callback<OrderBook> {
-                    override fun onResponse(call: Call<OrderBook>, response: Response<OrderBook>) {
-                        val responseData = response.body()
-
-                        responseData?.let{
-
-                            var responseOrder : Order
-
-                            responseData.asks?.let {
-
-                                responseData.asks.map {
-                                    responseOrder = Order(price = it[0], quantity = it[1], type = "asks")
-                                    orderList.add(responseOrder)
-                                }
-
-                            }
-
-                            responseData.bids?.let {
-
-                                responseData.bids.map {
-                                    responseOrder = Order(price = it[0], quantity = it[1], type = "bids")
-                                    orderList.add(responseOrder)
-                                }
-
-                            }
-
-                            Log.e("LIST", orderList.toString())
-
-                        }
-                    }
-
-                    override fun onFailure(call: Call<OrderBook>, t: Throwable) {
-                        Log.e("APIERROR", "${t.toString()}")
-                    }
-
-                }
-        )
     }
 
     fun filterArray() {
