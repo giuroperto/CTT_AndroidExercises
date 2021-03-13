@@ -3,27 +3,54 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="80dp"
-    android:background="@color/mimi_pink"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/melon">
 
-<!--    <ImageView-->
-<!--        android:layout_width=""-->
-<!--        android:layout_height=""-->
-<!--        />-->
+    <ImageView
+        android:id="@+id/imgSubj"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="30dp"
+        />
 
-<!--    <TextView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        />-->
+    <TextView
+        android:id="@+id/txtTitleSubj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/imgSubj"
+        app:layout_constraintStart_toEndOf="@id/imgSubj"
+        tools:text="NOME"
+        android:textSize="20dp"
+        android:textColor="@color/charcoal"
+        android:layout_marginStart="20dp"
+        />
 
-<!--    <TextView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        />-->
+    <TextView
+        android:id="@+id/txtDescSubj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtTitleSubj"
+        app:layout_constraintStart_toEndOf="@id/imgSubj"
+        tools:text="Simple description"
+        android:textSize="15dp"
+        android:textColor="@color/charcoal"
+        android:layout_marginStart="20dp"
+        />
 
-<!--    <TextView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        />-->
+    <TextView
+        android:id="@+id/txtTimeSubj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/imgSubj"
+        tools:text="1h"
+        android:textSize="20dp"
+        android:layout_marginEnd="30dp"
+        android:textColor="@color/charcoal"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

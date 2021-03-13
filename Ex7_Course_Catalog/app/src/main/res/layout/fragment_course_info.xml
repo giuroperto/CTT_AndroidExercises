@@ -22,12 +22,11 @@
 
     <TextView
         android:id="@+id/txtCourseDesc"
-        android:layout_width="300dp"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:textColor="@color/charcoal"
         app:layout_constraintTop_toBottomOf="@id/txtCourseTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/txtCourseTitle"
         android:textSize="25dp"
         android:layout_marginTop="30dp"
         android:layout_marginStart="20dp"
