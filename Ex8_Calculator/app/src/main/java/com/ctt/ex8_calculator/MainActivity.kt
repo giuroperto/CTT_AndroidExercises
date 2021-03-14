@@ -2,11 +2,22 @@ package com.ctt.ex8_calculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val btnCalcular : Button = findViewById(R.id.btnCalcular)
+
+        btnCalcular.setOnClickListener {
+            Toast.makeText(this,
+                calcularSoma(1, 5),
+                Toast.LENGTH_SHORT).show()
+        }
     }
 
 //    boas praticas separar as funcoes -> funcoes puras em kotlin -> deixando Toast por exemplo em outro local

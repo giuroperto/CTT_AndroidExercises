@@ -1,9 +1,21 @@
 package com.ctt.ex8_calculator
 
-//import junit.framework.Assert
+import android.widget.Button
+import android.widget.Toast
+import junit.framework.Assert.assertEquals
 import org.junit.Test
 import org.junit.Assert
+import org.junit.runner.RunWith
+import org.robolectric.Robolectric
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.RuntimeEnvironment
+import org.robolectric.Shadows.shadowOf
 
+// NAO COLOCAR TESTS EM GITIGNORE
+
+//para dizer que quem vai rodar o teste eh o Robolectric -> e nao o padrao JUnit
+//dizendo que a classe de testes vai funcionar sob determinada biblioteca
+@RunWith(RobolectricTestRunner::class)
 class MainActivityTest {
 
     //    criar funcao para fazer teste -> clicar, executar, etc
@@ -19,6 +31,28 @@ class MainActivityTest {
     val classeRetorno = Any()
     //    entraria o retorno esperado da API, se os parametros estao certos, etc
     val classeEsperada = Any()
+
+    @Test
+    fun clicarNoBotaoExibirToastComSucesso() {
+//        criar a activity
+//        robolectric vai simular o ciclo de vida -> coisa que o unitario nao consegue -> instancia diferente
+        val activity = Robolectric.setupActivity(MainActivity::class.java)
+        val btn = activity.findViewById<Button>(R.id.btnCalcular)
+
+        btn.performClick()
+
+//        conseguimos utilizar tudo que eh do android aqui
+        val toastEsperado = Toast.makeText(activity.applicationContext, activity.calcularSoma(1, 5), Toast.LENGTH_SHORT).show()
+
+//        tudo que se refere ao agora no Robolectric -> shadow
+//        em tempo de desenvolvimento, pegue a app agora
+//        atual -> aplicacao de agora
+//        context pode ter mudado
+        val toastAtual = shadowOf(RuntimeEnvironment.application).shownToasts
+
+//        vai ser o ultimo pois so clicamos uma vez
+        assertEquals(toastEsperado, toastAtual.last().show())
+    }
 
     @Test
     fun somarDoisNumerosComSucesso() {
