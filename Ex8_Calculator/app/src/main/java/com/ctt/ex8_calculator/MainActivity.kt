@@ -9,6 +9,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
+//    boas praticas separar as funcoes -> funcoes puras em kotlin -> deixando Toast por exemplo em outro local
+//    tudo que e Java -> JUNIT
+//    devops desenvolvem as ferramentas para analizar coverage pois o que tem aqui do JUNIT eh meio burro
+
     fun calcularSoma(a: Int?, b: Int?) : String {
 
         var resultado = ""
