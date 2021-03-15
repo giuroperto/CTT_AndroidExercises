@@ -43,52 +43,6 @@ class CoinActivity : AppCompatActivity() {
         }
     }
 
-    fun getOrderbook() {
-
-        val retrofitClient = Network.RetrofitConfig("https://www.mercadobitcoin.net/api/")
-        val service = retrofitClient.create(OrderBookService::class.java)
-        val call = service.getOrderBook(MainActivity.globalCoin.acronym)
-
-        call.enqueue(
-                object : Callback<OrderBook> {
-                    override fun onResponse(call: Call<OrderBook>, response: Response<OrderBook>) {
-                        val responseData = response.body()
-
-                        responseData?.let{
-
-                            var responseOrder : Order
-
-                            responseData.asks?.let {
-
-                                responseData.asks.map {
-                                    responseOrder = Order(price = it[0], quantity = it[1], type = "asks")
-                                    orderList.add(responseOrder)
-                                }
-
-                            }
-
-                            responseData.bids?.let {
-
-                                responseData.bids.map {
-                                    responseOrder = Order(price = it[0], quantity = it[1], type = "bids")
-                                    orderList.add(responseOrder)
-                                }
-
-                            }
-
-                            Log.e("LIST", orderList.toString())
-
-                        }
-                    }
-
-                    override fun onFailure(call: Call<OrderBook>, t: Throwable) {
-                        Log.e("APIERROR", "${t.toString()}")
-                    }
-
-                }
-        )
-    }
-
     companion object {
         var orderList: MutableList<Order> = mutableListOf()
     }
