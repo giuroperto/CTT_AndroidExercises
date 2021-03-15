@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/app_teal"
-    tools:context=".CoinActivity">
+    tools:context=".ui.coin.CoinActivity">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineLeft"

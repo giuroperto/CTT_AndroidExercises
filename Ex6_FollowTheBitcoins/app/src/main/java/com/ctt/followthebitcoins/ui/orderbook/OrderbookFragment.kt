@@ -1,4 +1,4 @@
-package com.ctt.followthebitcoins
+package com.ctt.followthebitcoins.ui.orderbook
 
 import android.os.Bundle
 import android.util.Log
@@ -6,22 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ctt.followthebitcoins.CoinActivity.Companion.orderList
+import com.ctt.followthebitcoins.ui.coin.CoinActivity.Companion.orderList
+import com.ctt.followthebitcoins.R
 import com.ctt.followthebitcoins.model.Order
-import com.ctt.followthebitcoins.model.OrderBook
-import com.ctt.followthebitcoins.model.TickerResponse
-import com.ctt.followthebitcoins.services.OrderBookService
-import com.ctt.followthebitcoins.services.TickerService
 import com.google.android.material.button.MaterialButtonToggleGroup
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import java.text.DecimalFormat
-import java.text.SimpleDateFormat
 
 class OrderbookFragment : Fragment() {
 

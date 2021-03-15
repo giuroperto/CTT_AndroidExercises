@@ -1,13 +1,12 @@
-package com.ctt.followthebitcoins
+package com.ctt.followthebitcoins.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager.widget.ViewPager
+import com.ctt.followthebitcoins.ui.coin.CoinsAdapter
+import com.ctt.followthebitcoins.R
 import com.ctt.followthebitcoins.model.Coin
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.tabs.TabLayout
 
 class MainActivity : AppCompatActivity() {
 

@@ -1,14 +1,16 @@
-package com.ctt.followthebitcoins
+package com.ctt.followthebitcoins.ui.coin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.viewpager.widget.ViewPager
-import com.ctt.followthebitcoins.model.Coin
+import com.ctt.followthebitcoins.PageAdapter
+import com.ctt.followthebitcoins.R
 import com.ctt.followthebitcoins.model.Order
 import com.ctt.followthebitcoins.model.OrderBook
-import com.ctt.followthebitcoins.services.OrderBookService
-import com.ctt.followthebitcoins.services.TickerService
+import com.ctt.followthebitcoins.repository.Network
+import com.ctt.followthebitcoins.repository.services.OrderBookService
+import com.ctt.followthebitcoins.ui.main.MainActivity
 import com.google.android.material.tabs.TabLayout
 import kotlinx.coroutines.runBlocking
 import retrofit2.Call

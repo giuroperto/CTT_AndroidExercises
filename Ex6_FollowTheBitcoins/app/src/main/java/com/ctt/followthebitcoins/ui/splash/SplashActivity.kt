@@ -1,9 +1,11 @@
-package com.ctt.followthebitcoins
+package com.ctt.followthebitcoins.ui.splash
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import com.ctt.followthebitcoins.R
+import com.ctt.followthebitcoins.ui.main.MainActivity
 
 class SplashActivity : AppCompatActivity() {
 

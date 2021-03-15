@@ -1,4 +1,4 @@
-package com.ctt.followthebitcoins
+package com.ctt.followthebitcoins.ui.coin
 
 import android.content.Context
 import android.content.Intent
@@ -8,7 +8,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.ctt.followthebitcoins.MainActivity.Companion.globalCoin
+import com.ctt.followthebitcoins.R
+import com.ctt.followthebitcoins.ui.main.MainActivity.Companion.globalCoin
 import com.ctt.followthebitcoins.model.Coin
 
 class CoinsAdapter(private val coinsList: MutableList<Coin>) : RecyclerView.Adapter<CoinsAdapter.ViewHolder>() {
@@ -21,7 +22,7 @@ class CoinsAdapter(private val coinsList: MutableList<Coin>) : RecyclerView.Adap
     }
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CoinsAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_coin, parent, false)
 
         contextHere = parent.context
@@ -29,7 +30,7 @@ class CoinsAdapter(private val coinsList: MutableList<Coin>) : RecyclerView.Adap
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: CoinsAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.coinAcronym.text = coinsList[position].acronym
         holder.coinName.text = coinsList[position].name
 

@@ -1,4 +1,4 @@
-package com.ctt.followthebitcoins
+package com.ctt.followthebitcoins.ui.ticker
 
 import android.os.Bundle
 import android.util.Log
@@ -7,21 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
-import com.ctt.followthebitcoins.MainActivity.Companion.globalCoin
-import com.ctt.followthebitcoins.model.Coin
-import com.ctt.followthebitcoins.model.Ticker
+import com.ctt.followthebitcoins.R
+import com.ctt.followthebitcoins.ui.main.MainActivity.Companion.globalCoin
 import com.ctt.followthebitcoins.model.TickerResponse
-import com.ctt.followthebitcoins.services.TickerService
-import com.google.gson.Gson
+import com.ctt.followthebitcoins.repository.Network
+import com.ctt.followthebitcoins.repository.services.TickerService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
-import java.time.format.DateTimeFormatter
-import java.util.*
-import kotlin.time.days
 
 class TickerFragment : Fragment() {
 

@@ -1,4 +1,4 @@
-package com.ctt.followthebitcoins.services
+package com.ctt.followthebitcoins.repository.services
 //
 //import com.ctt.followthebitcoins.model.OrderBook
 //import com.ctt.followthebitcoins.model.Trades

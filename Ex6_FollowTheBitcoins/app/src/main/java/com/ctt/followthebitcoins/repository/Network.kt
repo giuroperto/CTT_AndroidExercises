@@ -1,4 +1,4 @@
-package com.ctt.followthebitcoins
+package com.ctt.followthebitcoins.repository
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

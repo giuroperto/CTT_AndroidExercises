@@ -1,4 +1,4 @@
-package com.ctt.followthebitcoins
+package com.ctt.followthebitcoins.ui.trades
 
 class TradesAdapter {
 }

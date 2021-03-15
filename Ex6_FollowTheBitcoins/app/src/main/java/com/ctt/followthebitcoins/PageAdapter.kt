@@ -1,10 +1,13 @@
 package com.ctt.followthebitcoins
 
 import android.content.Context
-import android.text.method.TimeKeyListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import com.ctt.followthebitcoins.ui.orderbook.OrderbookFragment
+import com.ctt.followthebitcoins.ui.ticker.TickerFragment
+import com.ctt.followthebitcoins.ui.trades.TradesFragment
+
 //import com.ctt.followthebitcoins.model.Ticker
 
 class PageAdapter(fm: FragmentManager, pageAdapterContext: Context) : FragmentPagerAdapter(fm){
