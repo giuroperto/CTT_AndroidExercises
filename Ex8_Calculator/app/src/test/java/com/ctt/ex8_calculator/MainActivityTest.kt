@@ -1,16 +1,23 @@
 package com.ctt.ex8_calculator
 
+import android.util.Log
 import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
-import junit.framework.Assert.assertEquals
+import junit.framework.Assert.*
+import org.junit.After
 import org.junit.Test
 import org.junit.Assert
+import org.junit.Before
 import org.junit.runner.RunWith
 import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.RuntimeEnvironment
 import org.robolectric.Shadows.shadowOf
+import org.robolectric.android.controller.ActivityController
 import org.robolectric.annotation.Config
+import org.w3c.dom.Text
 
 // NAO COLOCAR TESTS EM GITIGNORE
 
@@ -21,7 +28,7 @@ import org.robolectric.annotation.Config
 // Nao precisa mudar no projeto!!! Da para adicionar a configuracao do teste
 
 @RunWith(RobolectricTestRunner::class)
-@Config(sdk = [29])
+@Config(sdk = [28])
 class MainActivityTest {
 
     //    criar funcao para fazer teste -> clicar, executar, etc
@@ -37,6 +44,99 @@ class MainActivityTest {
     val classeRetorno = Any()
     //    entraria o retorno esperado da API, se os parametros estao certos, etc
     val classeEsperada = Any()
+
+    private lateinit var activity: MainActivity
+
+//    controlador tem acesso a algumas informacoes que a activity nao tem, se preferir, separe os dois -> boa pratica
+//    visao macro da activity -> tem visao de tudo
+//    testar os intents dela, testar mudar o ciclo de vida... mais maleabilidade nos testes
+    private lateinit var controller: ActivityController<MainActivity>
+
+    //        ROBOLECTRIC TEM 3 PASSOS:
+//        ANTES - PREPARAR O AMBIENTE DE TESTES
+@Before
+    fun setup() {
+
+        controller = Robolectric.buildActivity(MainActivity::class.java)
+
+//        preciso criar a activity para ter acesso ao botao -> onCreate
+//        robolectric que cria a activity para nos, simula a sua criacao -> mas eh o gerador de activity (activity controladora) e nao a activity em si
+//        opcoes de mexer em ciclo de vida
+//        pega a activity no onCreate, da um start na activity, e pega o que ela gerar
+//        activity = Robolectric.buildActivity(MainActivity::class.java).create().start().get()
+
+        activity = controller.create().start().get()
+    }
+
+
+//        TESTE
+//    todos os testes elaborados
+
+//        DEPOIS - O QUE FAZER APOS O TESTE, TOTALMENTE OPCIONAL
+//    dar um fim na activity
+
+    @After
+    fun tearDown() {
+        Log.d("TAG", "alguma informacao")
+        activity.finish()
+    }
+
+    @Test
+    fun clicarBotaoExibirResultadoComSucesso() {
+//        nao eh so instanciar a classe, mas sim rodar, mexer nos ciclos de vida dela...
+//        e nao se faz que nem nos testes unitarios basicos com MainActivity()
+
+        val botao = activity.findViewById<Button>(R.id.btnCalcular)
+        val n1 = activity.findViewById<EditText>(R.id.edtNumero1)
+        val n2 = activity.findViewById<EditText>(R.id.edtNumero2)
+
+//        compare das duas -> pois ao clicar geraria uma nova activity
+//        activity.startNextMatchingActivity(MainActivity2::class.java)
+
+        n1.setText("1")
+        n2.setText("2")
+        botao.performClick()
+
+        val resultadoAtual = activity.findViewById<TextView>(R.id.txtResult).text.toString()
+        val resultadoEsperado = activity.calcularSoma(1, 2)
+
+        assertEquals(resultadoEsperado, resultadoAtual)
+
+//        um teste pode ter mais de um assert -> so vai dar como OK se passar em todos
+//        assertEquals(activity.findViewById(R.id.txtResult), TextView)
+        assertNotNull(resultadoAtual)
+    }
+
+//    TDD: QUAIS SAO OS CENARIOS DE ERRO/SUCESSO QUE PODEM OCORRER NO MEU APP?
+//    BDD: cenario de caso do usuario -> dado que sou um usuario querendo calcular dois numeros, quando eu inserir um deles como vazio
+//    deve retornar uma mensagem de valor invalido
+//    Quando eu fizer algo relacionado a essa acao, ter um retorno
+//    Dado que, quando, deve ser
+
+    @Test
+    fun clicarBotaoExibirResultadoErro() {
+
+        val botao = activity.findViewById<Button>(R.id.btnCalcular)
+        val n1 = activity.findViewById<EditText>(R.id.edtNumero1)
+        val n2 = activity.findViewById<EditText>(R.id.edtNumero2)
+
+        n1.setText(null)
+        n1.setText("2")
+        botao.performClick()
+
+//        teste vai dar erro pois eh engenharia reversa... design para falhar, pois primeiro se faz o teste
+//        depois faz o possivel no codigo para chegar ao resultado esperado
+//        intuito primeiro eh fazer o teste passar e depois vamos refatorar para melhorar
+//        val resultadoEsperado = activity.validarEntrada(n1.text.toString(), n2.text.toString())
+        val resultadoCalcularSoma = activity.calcularSoma(
+            n1.text.toString().toIntOrNull(),
+            n2.text.toString().toIntOrNull())
+        val resultadoAtual = activity.findViewById<TextView>(R.id.txtResult).text.toString()
+
+        assertEquals(resultadoCalcularSoma, resultadoAtual)
+//        assertFalse(resultadoEsperado)
+
+    }
 
     @Test
     fun clicarNoBotaoExibirToastComSucesso() {

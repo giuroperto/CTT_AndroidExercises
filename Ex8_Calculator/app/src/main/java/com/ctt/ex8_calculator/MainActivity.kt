@@ -34,25 +34,41 @@ class MainActivity : AppCompatActivity() {
         btnCalcular.setOnClickListener {
             result.text = calcularSoma(edtn1.text.toString().toIntOrNull(), edtn2.text.toString().toIntOrNull())
         }
+
     }
+
+//    fun validarEntrada(a: String, b: String) : Boolean {
+//        if a.isNotEmpty() && b.isNotEmpty()
+//    }
 
 //    boas praticas separar as funcoes -> funcoes puras em kotlin -> deixando Toast por exemplo em outro local
 //    tudo que e Java -> JUNIT
 //    devops desenvolvem as ferramentas para analizar coverage pois o que tem aqui do JUNIT eh meio burro
 
+//    fun calcularSoma(a: String, b: String) : String {
     fun calcularSoma(a: Int?, b: Int?) : String {
 
+//        val entradaValida = validarEntrada(a, b)
         var resultado = ""
 
-        resultado = if(a == null || b == null) {
-            "Insira um valor valido"
+//        if (entradaValida) {
+        resultado = if (a != null && b != null) {
+//            resultado = "O resultado e " + a.toInt() + b.toInt()
+             "O resultado e " + (a + b)
         } else {
-            "O resultado e " + (a + b)
+            "Insira um valor valido"
         }
+
+//        resultado = if(a == null || b == null) {
+//            "Insira um valor valido"
+//        } else {
+//            "O resultado e " + (a + b)
+//        }
 
         return resultado
 
 //        val resultado = a + b
 //        return "O resultado e: $resultado"
+
     }
 }
