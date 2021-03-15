@@ -25,7 +25,7 @@ class OrderbookAdapter(private var orderFilteredList: MutableList<Order>) : Recy
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val dec = DecimalFormat("#,###.##")
+        val dec = DecimalFormat("#,###.######")
 
         holder.orderPrice.text = dec.format(orderFilteredList[position].price).toString()
         holder.orderQuantity.text = dec.format(orderFilteredList[position].quantity).toString()

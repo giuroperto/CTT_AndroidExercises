@@ -32,6 +32,15 @@ class CoinActivity : AppCompatActivity() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+
+        if (orderList.size == 0) {
+            getOrderbook()
+
+        }
+    }
+
     fun getOrderbook() {
 
         val retrofitClient = Network.RetrofitConfig("https://www.mercadobitcoin.net/api/")
