@@ -3,20 +3,36 @@ package com.ctt.ex8_calculator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var result : TextView
+    private lateinit var edtn1 : EditText
+    private lateinit var edtn2 : EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        result = findViewById(R.id.txtResult)
+        edtn1 = findViewById(R.id.edtNumero1)
+        edtn2 = findViewById(R.id.edtNumero2)
+
         val btnCalcular : Button = findViewById(R.id.btnCalcular)
 
+//        PARA TESTAR TOASTS
+//        btnCalcular.setOnClickListener {
+//            Toast.makeText(this,
+//                calcularSoma(1, 5),
+//                Toast.LENGTH_SHORT).show()
+//        }
+
+//        PARA TESTAR COM CAMPO DA VIEW
         btnCalcular.setOnClickListener {
-            Toast.makeText(this,
-                calcularSoma(1, 5),
-                Toast.LENGTH_SHORT).show()
+            result.text = calcularSoma(edtn1.text.toString().toIntOrNull(), edtn2.text.toString().toIntOrNull())
         }
     }
 

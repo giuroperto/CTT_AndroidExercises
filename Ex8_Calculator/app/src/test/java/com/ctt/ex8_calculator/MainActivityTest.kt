@@ -10,12 +10,18 @@ import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.RuntimeEnvironment
 import org.robolectric.Shadows.shadowOf
+import org.robolectric.annotation.Config
 
 // NAO COLOCAR TESTS EM GITIGNORE
 
 //para dizer que quem vai rodar o teste eh o Robolectric -> e nao o padrao JUnit
 //dizendo que a classe de testes vai funcionar sob determinada biblioteca
+
+// A versao 4.4 do Robolectric nao tem suporte para o SDK 30
+// Nao precisa mudar no projeto!!! Da para adicionar a configuracao do teste
+
 @RunWith(RobolectricTestRunner::class)
+@Config(sdk = [29])
 class MainActivityTest {
 
     //    criar funcao para fazer teste -> clicar, executar, etc
