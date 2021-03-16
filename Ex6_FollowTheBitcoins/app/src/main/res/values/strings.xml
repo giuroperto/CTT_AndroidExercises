@@ -22,6 +22,6 @@
     <string name="app_orderQuantity">Quantity: </string>
     <string name="app_orderPrice">Price: </string>
 
-    <string name="app_orderAsksBtn">Venda</string>
-    <string name="app_orderBidsBtn">Compra</string>
+    <string name="app_orderAsksBtn">Asks</string>
+    <string name="app_orderBidsBtn">Bids</string>
 </resources>

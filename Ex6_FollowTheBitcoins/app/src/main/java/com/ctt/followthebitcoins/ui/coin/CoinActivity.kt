@@ -50,9 +50,10 @@ class CoinActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
+        getApiOrderbook()
+
         if (orderList.size == 0) {
             viewModel.getOrderBook()
-
         }
     }
 
