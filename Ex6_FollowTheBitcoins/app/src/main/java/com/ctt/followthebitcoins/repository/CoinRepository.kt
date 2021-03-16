@@ -4,7 +4,10 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.ctt.followthebitcoins.model.Order
 import com.ctt.followthebitcoins.model.OrderBook
+import com.ctt.followthebitcoins.model.Trade
+import com.ctt.followthebitcoins.model.TradeList
 import com.ctt.followthebitcoins.repository.services.OrderBookService
+import com.ctt.followthebitcoins.repository.services.TradesService
 import com.ctt.followthebitcoins.ui.coin.CoinActivity.Companion.orderList
 import com.ctt.followthebitcoins.ui.main.MainActivity
 import retrofit2.Call
@@ -76,5 +79,46 @@ class CoinRepository {
         orderList = orderBookList
         orderbookLiveData.value = orderBookList
         return orderbookLiveData
+    }
+
+    fun getTrades() : MutableLiveData<MutableList<Trade>> {
+
+        val tradesLiveData = MutableLiveData<MutableList<Trade>>()
+        val tradesList : MutableList<Trade> = mutableListOf()
+
+        val retrofitClient = Network.RetrofitConfig("https://www.mercadobitcoin.net/api/")
+        val service = retrofitClient.create(TradesService::class.java)
+        val call = service.getTrades(MainActivity.globalCoin.acronym)
+
+        call.enqueue(
+                object : Callback<TradeList> {
+
+                    override fun onResponse(call: Call<TradeList>, response: Response<TradeList>) {
+                        val responseData = response.body()
+
+                        if(response.isSuccessful && responseData != null) {
+                            responseData?.let {
+                                var responseTrade : Trade
+
+                                responseData.data?.let {
+                                    responseData.data.map {
+                                        responseTrade = Trade(date = it.date, price = it.price, amount = it.amount, tid = it.tid, type = it.type)
+                                        tradesList.add(responseTrade)
+                                    }
+                                }
+                                Log.e("LIST", tradesList.toString())
+
+                            }
+                        }
+                    }
+
+                    override fun onFailure(call: Call<TradeList>, t: Throwable) {
+                        Log.e("APIERROR", "${t.toString()}")
+                    }
+                }
+        )
+
+        tradesLiveData.value = tradesList
+        return tradesLiveData
     }
 }

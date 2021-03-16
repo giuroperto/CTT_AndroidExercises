@@ -1,75 +1,136 @@
 package com.ctt.followthebitcoins.ui.trades
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.ctt.followthebitcoins.R
+import com.ctt.followthebitcoins.model.Order
+import com.ctt.followthebitcoins.ui.coin.CoinActivity
+import com.ctt.followthebitcoins.ui.orderbook.OrderbookAdapter
+import com.google.android.material.button.MaterialButtonToggleGroup
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [TradesFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class TradesFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_trades, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TradesFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            TradesFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }
 
 
-//val statusList = mutableListOf<Status>(
-//    Status(picture = null, name = "Giulia", time = "20 minutes ago"),
-//    Status(picture = null, name = "Henrique", time = "25 minutes ago"),
-//    Status(picture = null, name = "Afonso", time = "40 minutes ago"),
-//    Status(picture = null, name = "Cristina", time = "1h ago"),
-//    Status(picture = null, name = "Daniel", time = "5h ago"),
-//)
+//class OrderbookFragment : Fragment() {
 //
-//val rvStatus = view.findViewById<RecyclerView>(R.id.statusList)
+//    private var orderType: String = ""
 //
-//val adapterStatus = StatusAdapter(statusList)
-//rvStatus.adapter = adapterStatus
-//rvStatus.layoutManager = LinearLayoutManager(requireContext())
+//    private lateinit var filteredList : MutableList<Order>
+//    private lateinit var toggleBtn : MaterialButtonToggleGroup
+//    private lateinit var rvOrders : RecyclerView
+//    private lateinit var adapterOrderBook : OrderbookAdapter
+//
+//    override fun onCreateView(
+//            inflater: LayoutInflater, container: ViewGroup?,
+//            savedInstanceState: Bundle?
+//    ): View? {
+//        return inflater.inflate(R.layout.fragment_orderbook, container, false)
+//    }
+//
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//
+//        toggleBtn = view.findViewById(R.id.tbOrders)
+//        rvOrders = view.findViewById(R.id.rvOrderList)
+//
+//        filterArray()
+//        adapterOrderBook = OrderbookAdapter(filteredList)
+//
+//        adapterOrderBook.notifyDataSetChanged()
+//
+//        toggleBtn.addOnButtonCheckedListener{
+//            toggleButton, checkedId, isChecked ->
+//
+//            if (isChecked) {
+//                if (checkedId == 2131230808) {
+//                    orderType = "asks"
+//                } else if (checkedId == 2131230809) {
+//                    orderType = "bids"
+//                } else {
+//                    orderType = ""
+//                }
+//            } else {
+//                orderType =""
+//            }
+//
+//            filterArray()
+//
+//            if (filteredList.size > 0) {
+//                Log.e("CHAMANDO ADAPTER", "chamando adapter logo depois")
+//                adapterOrderBook = OrderbookAdapter(filteredList)
+//            }
+//
+//            rvOrders.adapter = adapterOrderBook
+//            rvOrders.layoutManager = LinearLayoutManager(requireContext())
+//            adapterOrderBook.notifyDataSetChanged()
+//        }
+//
+//        Log.e("LISTSIZE", filteredList.size.toString())
+//    }
+//
+//    override fun onStart() {
+//        super.onStart()
+//
+//        Log.e("init ordertype", orderType)
+//        Log.e("init orderList", CoinActivity.orderList.toString())
+//
+//        if (CoinActivity.orderList.size > 0 && orderType == "") {
+//            Log.e("dentro if orders", "testando dentro if")
+//
+//            filteredList = CoinActivity.orderList.filter{ order ->
+//                order.type == "asks"
+//            } as MutableList<Order>
+//
+//            adapterOrderBook = OrderbookAdapter(filteredList)
+//            rvOrders.adapter = adapterOrderBook
+//            rvOrders.layoutManager = LinearLayoutManager(requireContext())
+//        }
+//
+//    }
+//
+//    fun filterArray() {
+//
+//        Log.e("Filter", "inside filter")
+//        Log.e("FilterType", orderType)
+//
+//        if (orderType == "asks") {
+//            filteredList = CoinActivity.orderList.filter{ order ->
+//                order.type == "asks"
+//            } as MutableList<Order>
+//        } else if (orderType == "bids") {
+//            filteredList = CoinActivity.orderList.filter {
+//                order ->
+//                order.type == "bids"
+//            } as MutableList<Order>
+////            adapterOrderBook.notifyDataSetChanged()
+//        } else {
+//            filteredList = CoinActivity.orderList.filter{ order ->
+//                order.type == "asks"
+//            } as MutableList<Order>
+//        }
+//
+//        Log.e("FILTEREDLIST", filteredList.toString())
+//
+//    }
+//}
+//
