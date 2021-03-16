@@ -5,8 +5,8 @@
     <string name="app_dev">Developed by</string>
     <string name="app_creator">Giulia Roperto</string>
     <string name="app_ticker">INFOS</string>
-    <string name="app_orderbook">TRANSACOES</string>
-    <string name="app_trades">NEGOCIACOES</string>
+    <string name="app_orderbook">ORDERBOOK</string>
+    <string name="app_trades">TRADES</string>
     <string name="app_dialogTitle">COINS</string>
     <string name="app_dialogCancel">CANCEL</string>
     <string name="app_dialogOk">OK</string>
@@ -22,6 +22,6 @@
     <string name="app_orderQuantity">Quantity: </string>
     <string name="app_orderPrice">Price: </string>
 
-    <string name="app_orderAsksBtn">Venda</string>
-    <string name="app_orderBidsBtn">Compra</string>
+    <string name="app_orderAsksBtn">Asks</string>
+    <string name="app_orderBidsBtn">Bids</string>
 </resources>
