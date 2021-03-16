@@ -3,6 +3,8 @@ package com.ctt.followthebitcoins.ui.coin
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import androidx.viewpager.widget.ViewPager
 import com.ctt.followthebitcoins.PageAdapter
 import com.ctt.followthebitcoins.R
@@ -12,12 +14,13 @@ import com.ctt.followthebitcoins.repository.Network
 import com.ctt.followthebitcoins.repository.services.OrderBookService
 import com.ctt.followthebitcoins.ui.main.MainActivity
 import com.google.android.material.tabs.TabLayout
-import kotlinx.coroutines.runBlocking
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class CoinActivity : AppCompatActivity() {
+
+    private val viewModel = CoinActivityViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,65 +31,29 @@ class CoinActivity : AppCompatActivity() {
 
         viewPager.adapter = PageAdapter(supportFragmentManager, this)
         tabLayout.setupWithViewPager(viewPager)
+    }
 
-        runBlocking {
-            getOrderbook()
-        }
+    fun getApiOrderbook() {
+        viewModel.getOrderBook().observe(
+            this,
+            object : Observer<MutableList<Order>> {
+                override fun onChanged(t: MutableList<Order>?) {
+                    t?.let {
+                        orderList = t
+                    }
+                }
+
+            }
+        )
     }
 
     override fun onStart() {
         super.onStart()
 
         if (orderList.size == 0) {
-            getOrderbook()
+            viewModel.getOrderBook()
 
         }
-    }
-
-    fun getOrderbook() {
-
-        val retrofitClient = Network.RetrofitConfig("https://www.mercadobitcoin.net/api/")
-        val service = retrofitClient.create(OrderBookService::class.java)
-        val call = service.getOrderBook(MainActivity.globalCoin.acronym)
-
-        call.enqueue(
-                object : Callback<OrderBook> {
-                    override fun onResponse(call: Call<OrderBook>, response: Response<OrderBook>) {
-                        val responseData = response.body()
-
-                        responseData?.let{
-
-                            var responseOrder : Order
-
-                            responseData.asks?.let {
-
-                                responseData.asks.map {
-                                    responseOrder = Order(price = it[0], quantity = it[1], type = "asks")
-                                    orderList.add(responseOrder)
-                                }
-
-                            }
-
-                            responseData.bids?.let {
-
-                                responseData.bids.map {
-                                    responseOrder = Order(price = it[0], quantity = it[1], type = "bids")
-                                    orderList.add(responseOrder)
-                                }
-
-                            }
-
-                            Log.e("LIST", orderList.toString())
-
-                        }
-                    }
-
-                    override fun onFailure(call: Call<OrderBook>, t: Throwable) {
-                        Log.e("APIERROR", "${t.toString()}")
-                    }
-
-                }
-        )
     }
 
     companion object {
