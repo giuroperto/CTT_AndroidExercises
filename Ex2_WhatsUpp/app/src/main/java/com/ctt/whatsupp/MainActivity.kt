@@ -19,19 +19,11 @@ class MainActivity : AppCompatActivity() {
 
         picture = findViewById(R.id.imgCamera)
 
-//        1. Vinculamos as fragments a viewpager
-
-//        vincular tablayout e viewpager -> para vincular as tabs
         val tabLayout = findViewById<TabLayout>(R.id.tabLayout)
         val viewPager = findViewById<ViewPager>(R.id.viewPager)
 
-//        funcao do android para pegar o gerenciador de fragments -> suporte -> questoes de compatibilidade
-//        primeiro o adapter pra arrumar o viewpager -> criar fragments e organizar
         viewPager.adapter = PageAdapter(supportFragmentManager, this)
-//        depois linka com as tabs
         tabLayout.setupWithViewPager(viewPager)
-
-//        para organizar por tabs, ir no adapter e criar um novo metodo
 
         picture.setOnClickListener{
             abrirCamera()
@@ -51,16 +43,3 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-
-// PASSOS PARA SE CRIAR UMA RECYCLERVIEW
-// 1. TENHA EM MAOS OS SEUS DADOS (UMA MUTABLELISTOF POR EXEMPLO)
-// 2. JA TENHA CRIADO A RECYCLERVIEW EM SEU XML -> rv no fragment_contatos
-// 3. JA TENHA CRIADO O ITEM DA SUA LISTA EM XML -> item_contato
-// 4. CRIE O SEU ADAPTER, INDIQUE QUE O ITEM DA SUA EM XML EH O ITEM DA RECYCLERVIEW VIA ONCREATEVIEWHOLDER -> ConversasAdapter
-// 5. CRIE SUA CLASSE VIEWHOLDER, ENCONTRE OS ITENS EM SEU XML COM FINDVIEWBYID
-// 6. VINCULE OS DADOS PASSADOS VIA ADAPTER AOS COMPONENTES VIA ONBINDVIEWHOLDER
-// 7. VINCULE O ADAPTER DA SUA RECYCLERVIEW A UMA INSTANCIA DA SUA CLASSE ADAPTER COM SEUS DADOS
-// 8. VINCULE UM GERENCIADOR DE LAYOUT (LAYOUT MANAGER) A SUA RECYCLERVIEW
-
-// viewpager funciona como o recycler view -> forma de incluir fragments de maneira dinamica no meu app
-// gerencia as fragments
