@@ -15,7 +15,7 @@ import com.google.android.material.button.MaterialButtonToggleGroup
 
 class OrderbookFragment : Fragment() {
 
-    private var orderType: String = "asks"
+    private var orderType: String = ""
 
     private lateinit var filteredList : MutableList<Order>
     private lateinit var toggleBtn : MaterialButtonToggleGroup
@@ -33,10 +33,11 @@ class OrderbookFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         toggleBtn = view.findViewById(R.id.tbOrders)
+        rvOrders = view.findViewById(R.id.rvOrderList)
 
         filterArray()
-
         adapterOrderBook = OrderbookAdapter(filteredList)
+
         adapterOrderBook.notifyDataSetChanged()
 
         toggleBtn.addOnButtonCheckedListener{
@@ -45,55 +46,24 @@ class OrderbookFragment : Fragment() {
             if (isChecked) {
                 if (checkedId == 2131230808) {
                     orderType = "asks"
-                    filterArray()
-
-                    if (filteredList.size > 0) {
-                        rvOrders = view.findViewById(R.id.rvOrderList)
-                        Log.e("CHAMANDO ADAPTER", "chamando adapter logo depois")
-                        adapterOrderBook = OrderbookAdapter(filteredList)
-                        rvOrders.adapter = adapterOrderBook
-                        rvOrders.layoutManager = LinearLayoutManager(requireContext())
-                    }
-
                 } else if (checkedId == 2131230809) {
                     orderType = "bids"
-                    filterArray()
-
-                    if (filteredList.size > 0) {
-                        rvOrders = view.findViewById(R.id.rvOrderList)
-                        Log.e("CHAMANDO ADAPTER", "chamando adapter logo depois")
-                        adapterOrderBook = OrderbookAdapter(filteredList)
-                        rvOrders.adapter = adapterOrderBook
-                        rvOrders.layoutManager = LinearLayoutManager(requireContext())
-                    }
-
                 } else {
-                    // default
-                    orderType = "asks"
-                    filterArray()
-
-                    if (filteredList.size > 0) {
-                        rvOrders = view.findViewById(R.id.rvOrderList)
-                        Log.e("CHAMANDO ADAPTER", "chamando adapter logo depois")
-                        adapterOrderBook = OrderbookAdapter(filteredList)
-                        rvOrders.adapter = adapterOrderBook
-                        rvOrders.layoutManager = LinearLayoutManager(requireContext())
-                    }
-
+                    orderType = ""
                 }
             } else {
                 orderType =""
-                filterArray()
-
-                if (filteredList.size > 0) {
-                    rvOrders = view.findViewById(R.id.rvOrderList)
-                    Log.e("CHAMANDO ADAPTER", "chamando adapter logo depois")
-                    adapterOrderBook = OrderbookAdapter(filteredList)
-                    rvOrders.adapter = adapterOrderBook
-                    rvOrders.layoutManager = LinearLayoutManager(requireContext())
-                }
-
             }
+
+            filterArray()
+
+            if (filteredList.size > 0) {
+                Log.e("CHAMANDO ADAPTER", "chamando adapter logo depois")
+                adapterOrderBook = OrderbookAdapter(filteredList)
+            }
+
+            rvOrders.adapter = adapterOrderBook
+            rvOrders.layoutManager = LinearLayoutManager(requireContext())
             adapterOrderBook.notifyDataSetChanged()
         }
 
@@ -103,9 +73,21 @@ class OrderbookFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        if (filteredList.size == 0) {
-            filterArray()
+        Log.e("init ordertype", orderType)
+        Log.e("init orderList", orderList.toString())
+
+        if (orderList.size > 0 && orderType == "") {
+            Log.e("dentro if orders", "testando dentro if")
+
+            filteredList = orderList.filter{ order ->
+                order.type == "asks"
+            } as MutableList<Order>
+
+            adapterOrderBook = OrderbookAdapter(filteredList)
+            rvOrders.adapter = adapterOrderBook
+            rvOrders.layoutManager = LinearLayoutManager(requireContext())
         }
+
     }
 
     fun filterArray() {
@@ -134,4 +116,3 @@ class OrderbookFragment : Fragment() {
     }
 }
 
-// TODO: 15/03/2021 change to livedata

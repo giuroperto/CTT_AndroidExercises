@@ -29,6 +29,8 @@ class CoinActivity : AppCompatActivity() {
         val tabLayout = findViewById<TabLayout>(R.id.tbMenu)
         val viewPager = findViewById<ViewPager>(R.id.vwTabs)
 
+        getApiOrderbook()
+
         viewPager.adapter = PageAdapter(supportFragmentManager, this)
         tabLayout.setupWithViewPager(viewPager)
     }
@@ -49,8 +51,6 @@ class CoinActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-
-        getApiOrderbook()
 
         if (orderList.size == 0) {
             viewModel.getOrderBook()

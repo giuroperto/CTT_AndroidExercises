@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.ctt.followthebitcoins.model.Order
 import com.ctt.followthebitcoins.model.OrderBook
 import com.ctt.followthebitcoins.repository.services.OrderBookService
+import com.ctt.followthebitcoins.ui.coin.CoinActivity.Companion.orderList
 import com.ctt.followthebitcoins.ui.main.MainActivity
 import retrofit2.Call
 import retrofit2.Callback
@@ -72,8 +73,8 @@ class CoinRepository {
             }
         )
 
+        orderList = orderBookList
         orderbookLiveData.value = orderBookList
-
         return orderbookLiveData
     }
 }
