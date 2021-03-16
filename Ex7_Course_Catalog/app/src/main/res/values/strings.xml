@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Course_Catalog</string>
+    <string name="app_name">CourseCatalog</string>
 
     <string name="app_title">Catalogo de Cursos</string>
     <string name="app_main_welcome">Bem vindo! </string>
