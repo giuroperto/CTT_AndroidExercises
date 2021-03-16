@@ -32,31 +32,3 @@ class CarActivity : AppCompatActivity() {
 
     }
 }
-
-//"%,d".format(input)
-
-//import android.util.Log
-//import android.widget.TextView
-//import com.ctt.first_project_mobile.model.Usuario
-//import kotlinx.android.synthetic.main.activity_main.*
-//
-//
-//
-//        Log.e("FOTO", usuario.foto.toString())
-//
-//        imgUsuario.setImageBitmap(usuario.foto)
-//
-////    evitar processamento desnecessario -> verificacao
-//
-//        if (usuario.foto != null) {
-//            imgUsuario.setImageBitmap(usuario.foto)
-//        } else {
-//            imgUsuario.setImageResource(R.drawable.ic_eevee)
-//        }
-////        usuario.foto?.let{
-////    //    it = tudo que eu falei antes do .let
-////    //    imgUsuario.setImageBitmap(usuario.foto)
-////            imgUsuario.setImageBitmap(it)
-////        }
-//    }
-//}

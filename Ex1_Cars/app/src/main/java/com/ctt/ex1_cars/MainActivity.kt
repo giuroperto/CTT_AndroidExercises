@@ -139,5 +139,3 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
-
-// colocar imagem de outro lugar, sem ser tirar foto
