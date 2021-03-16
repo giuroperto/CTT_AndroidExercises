@@ -27,6 +27,7 @@
         />
 
     <LinearLayout
+        android:id="@+id/lnrInput"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,10 +76,10 @@
         android:id="@+id/itemsList"
         android:layout_width="match_parent"
         android:layout_height="560dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lnrInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/white"
+        android:background="?attr/colorOnPrimary"
         tools:listitem="@layout/shopping_item"
         />
 
