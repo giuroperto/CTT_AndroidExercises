@@ -3,6 +3,8 @@ package com.ctt.followthebitcoins.ui.coin
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import androidx.viewpager.widget.ViewPager
 import com.ctt.followthebitcoins.PageAdapter
 import com.ctt.followthebitcoins.R
@@ -12,12 +14,13 @@ import com.ctt.followthebitcoins.repository.Network
 import com.ctt.followthebitcoins.repository.services.OrderBookService
 import com.ctt.followthebitcoins.ui.main.MainActivity
 import com.google.android.material.tabs.TabLayout
-import kotlinx.coroutines.runBlocking
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class CoinActivity : AppCompatActivity() {
+
+    private val viewModel = CoinActivityViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,17 +31,27 @@ class CoinActivity : AppCompatActivity() {
 
         viewPager.adapter = PageAdapter(supportFragmentManager, this)
         tabLayout.setupWithViewPager(viewPager)
+    }
 
-        runBlocking {
-            getOrderbook()
-        }
+    fun getApiOrderbook() {
+        viewModel.getOrderBook().observe(
+            this,
+            object : Observer<MutableList<Order>> {
+                override fun onChanged(t: MutableList<Order>?) {
+                    t?.let {
+                        orderList = t
+                    }
+                }
+
+            }
+        )
     }
 
     override fun onStart() {
         super.onStart()
 
         if (orderList.size == 0) {
-            getOrderbook()
+            viewModel.getOrderBook()
 
         }
     }
