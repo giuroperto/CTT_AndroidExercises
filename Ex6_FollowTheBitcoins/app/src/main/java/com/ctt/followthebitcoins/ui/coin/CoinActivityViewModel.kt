@@ -11,9 +11,7 @@ class CoinActivityViewModel(
     private lateinit var orderbookLiveData : MutableLiveData<MutableList<Order>>
 
     fun getOrderBook() : MutableLiveData<MutableList<Order>> {
-        if (orderbookLiveData == null) {
-            orderbookLiveData = coinRepository.getOrderbook()
-        }
+        orderbookLiveData = coinRepository.getOrderbook()
         return orderbookLiveData
     }
 }
