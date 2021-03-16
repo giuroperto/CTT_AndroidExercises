@@ -76,36 +76,4 @@ class PetActivity : AppCompatActivity() {
 
         startActivity(targetActivity)
     }
-
-//    fun getDogImage() {
-//        val retrofitClient = Network.RetrofitConfig("https://dog.ceo/api/")
-//        val service = retrofitClient.create(DogPicturesService::class.java)
-//        val call = service.getDogPicture()
-//
-//        call.enqueue(
-//            object : Callback<DogPicture> {
-//                override fun onResponse(call: Call<DogPicture>, response: Response<DogPicture>) {
-//                    val dogImgResponse = response.body()?.pictureURL
-//
-//                    dogImg = dogImgResponse ?: "https://images.dog.ceo/breeds/akita/An_Akita_Inu_resting.jpg"
-//
-//                    dogImgResponse?.let{
-//                        if (it.isNotEmpty()) {
-//                            Glide.with(parent)
-//                                .load(it)
-//                                .centerCrop()
-//                                .into(imgDog)
-//                        } else {
-//                            imgDog.setImageResource(R.mipmap.ic_main_dog2)
-//                        }
-//                    }
-//                }
-//
-//                override fun onFailure(call: Call<DogPicture>, t: Throwable) {
-//                    imgDog.setImageResource(R.mipmap.ic_main_dog2)
-//                }
-//
-//            }
-//        )
-//    }
 }
