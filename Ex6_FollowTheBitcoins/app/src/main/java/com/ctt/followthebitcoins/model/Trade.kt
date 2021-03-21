@@ -8,6 +8,6 @@ data class Trade(
         val type: String
 )
 
-data class TradeList(
-        val data: Array<Trade>
-)
+//data class TradeList(
+//        val data: MutableList<Trade>
+//)

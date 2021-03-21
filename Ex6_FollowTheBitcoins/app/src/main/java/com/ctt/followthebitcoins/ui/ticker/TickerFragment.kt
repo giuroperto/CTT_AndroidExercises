@@ -12,6 +12,7 @@ import com.ctt.followthebitcoins.ui.main.MainActivity.Companion.globalCoin
 import com.ctt.followthebitcoins.model.TickerResponse
 import com.ctt.followthebitcoins.repository.Network
 import com.ctt.followthebitcoins.repository.services.TickerService
+import com.ctt.followthebitcoins.ui.coin.CoinActivity.Companion.tickerData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -54,58 +55,21 @@ class TickerFragment : Fragment() {
         coinAcr.text = globalCoin.acronym
         coinName.text = globalCoin.name
 
-        getTicker()
-    }
+        val dec = DecimalFormat("#,###.##")
 
-    fun getTicker() {
-        val retrofitClient = Network.RetrofitConfig("https://www.mercadobitcoin.net/api/")
+        tickerData?.let {
+            val dateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm")
+            val dateString = dateFormat.format(it.date)
+            val dateAdj = String.format(dateString)
 
-        val service = retrofitClient.create(TickerService::class.java)
+            infoHigh.text = dec.format(it.high).toString()
+            infoLow.text = dec.format(it.low).toString()
+            infoVol.text = dec.format(it.vol).toString()
+            infoLast.text = dec.format(it.last).toString()
+            infoBuy.text = dec.format(it.buy).toString()
+            infoSell.text = dec.format(it.sell).toString()
+            infoDate.text = dateAdj
+        }
 
-        val call = service.getTicker(globalCoin.acronym)
-
-        call.enqueue(
-            object : Callback<TickerResponse> {
-                override fun onResponse(
-                    call: Call<TickerResponse>,
-                    response: Response<TickerResponse>
-                ) {
-                    val responseData = response.body()
-
-                    responseData?.let{
-                        responseData.ticker?.let{
-
-                            val dec = DecimalFormat("#,###.##")
-
-                            val responseHigh: Double = responseData.ticker.high
-                            val responseLow: Double = responseData.ticker.low
-                            val responseVol: Double = responseData.ticker.vol
-                            val responseLast: Double = responseData.ticker.last
-                            val responseBuy: Double = responseData.ticker.buy
-                            val responseSell: Double = responseData.ticker.sell
-                            val responseDate: Double = responseData.ticker.date
-
-                            val dateMiliseconds = responseDate * 1000
-                            val dateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm")
-                            val dateString = dateFormat.format(dateMiliseconds)
-                            val dateAdj = String.format(dateString)
-
-                            infoHigh.text = dec.format(responseHigh).toString()
-                            infoLow.text = dec.format(responseLow).toString()
-                            infoVol.text = dec.format(responseVol).toString()
-                            infoLast.text = dec.format(responseLast).toString()
-                            infoBuy.text = dec.format(responseBuy).toString()
-                            infoSell.text = dec.format(responseSell).toString()
-                            infoDate.text = dateAdj
-                        }
-                    }
-                }
-
-                override fun onFailure(call: Call<TickerResponse>, t: Throwable) {
-                    Log.e("APIERROR", "${t.toString()}")
-                }
-
-            }
-        )
     }
 }
