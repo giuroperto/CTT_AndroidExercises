@@ -10,6 +10,7 @@ import com.ctt.followthebitcoins.PageAdapter
 import com.ctt.followthebitcoins.R
 import com.ctt.followthebitcoins.model.Order
 import com.ctt.followthebitcoins.model.OrderBook
+import com.ctt.followthebitcoins.model.Ticker
 import com.ctt.followthebitcoins.repository.Network
 import com.ctt.followthebitcoins.repository.services.OrderBookService
 import com.ctt.followthebitcoins.ui.main.MainActivity
@@ -32,6 +33,7 @@ class CoinActivity : AppCompatActivity() {
         viewPager.adapter = PageAdapter(supportFragmentManager, this)
         tabLayout.setupWithViewPager(viewPager)
     }
+
 
     fun getApiOrderbook() {
         viewModel.getOrderBook().observe(
@@ -58,6 +60,7 @@ class CoinActivity : AppCompatActivity() {
     }
 
     companion object {
+//        var tickerData: MutableList<Ticker> = mutableListOf()
         var orderList: MutableList<Order> = mutableListOf()
     }
 }
