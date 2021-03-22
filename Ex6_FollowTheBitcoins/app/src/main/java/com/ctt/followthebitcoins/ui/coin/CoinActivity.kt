@@ -33,34 +33,4 @@ class CoinActivity : AppCompatActivity() {
         viewPager.adapter = PageAdapter(supportFragmentManager, this)
         tabLayout.setupWithViewPager(viewPager)
     }
-
-
-    fun getApiOrderbook() {
-        viewModel.getOrderBook().observe(
-            this,
-            object : Observer<MutableList<Order>> {
-                override fun onChanged(t: MutableList<Order>?) {
-                    t?.let {
-                        orderList = t
-                    }
-                }
-
-            }
-        )
-    }
-
-    override fun onStart() {
-        super.onStart()
-
-        getApiOrderbook()
-
-        if (orderList.size == 0) {
-            viewModel.getOrderBook()
-        }
-    }
-
-    companion object {
-//        var tickerData: MutableList<Ticker> = mutableListOf()
-        var orderList: MutableList<Order> = mutableListOf()
-    }
 }

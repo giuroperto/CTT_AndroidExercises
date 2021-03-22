@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import com.ctt.followthebitcoins.model.Order
 import com.ctt.followthebitcoins.model.Ticker
 import com.ctt.followthebitcoins.repository.CoinRepository
-import com.ctt.followthebitcoins.repository.services.ApiResponse
 import com.ctt.followthebitcoins.ui.ticker.TickerFragment
 
 class CoinActivityViewModel(
@@ -58,16 +57,6 @@ class CoinActivityViewModel(
 //    }
 
 
-    //    ------------------------------------ORDERBOOK---------------------------------------
-
-    fun getOrderBook() : MutableLiveData<MutableList<Order>> {
-        orderbookLiveData = coinRepository.getOrderbook()
-        return orderbookLiveData
-    }
-
-
-
-
-
-
+    // TODO: 22/03/2021 add activity logic to viewmodel 
+    
 }

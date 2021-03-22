@@ -1,7 +1,6 @@
 package com.ctt.followthebitcoins.ui.ticker
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +9,7 @@ import android.widget.TextView
 import com.ctt.followthebitcoins.R
 import com.ctt.followthebitcoins.model.Ticker
 import com.ctt.followthebitcoins.ui.main.MainActivity.Companion.globalCoin
-import com.ctt.followthebitcoins.repository.services.ApiResponse
+import com.ctt.followthebitcoins.repository.services.TickerApiResponse
 import com.ctt.followthebitcoins.ui.coin.CoinActivityViewModel
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
@@ -77,12 +76,11 @@ class TickerFragment : Fragment() {
     fun getTickerData() {
         coinRepository.getTicker(
 
-            object: ApiResponse {
+            object: TickerApiResponse {
 
-                override fun tickerSuccess(ticker: Ticker) {
+                override fun success(ticker: Ticker) {
                     getTicker(ticker)
                 }
-
             }
         )
     }
