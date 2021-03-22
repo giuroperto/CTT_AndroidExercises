@@ -11,14 +11,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="12d8951e-ce26-4675-8b52-b1e80270d0e5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Ex6_FollowTheBitcoins/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex6_FollowTheBitcoins/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ex6_FollowTheBitcoins/app/src/main/java/com/ctt/followthebitcoins/PageAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex6_FollowTheBitcoins/app/src/main/java/com/ctt/followthebitcoins/PageAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ex6_FollowTheBitcoins/app/src/main/java/com/ctt/followthebitcoins/model/Ticker.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex6_FollowTheBitcoins/app/src/main/java/com/ctt/followthebitcoins/model/Ticker.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ex6_FollowTheBitcoins/app/src/main/java/com/ctt/followthebitcoins/repository/CoinRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex6_FollowTheBitcoins/app/src/main/java/com/ctt/followthebitcoins/repository/CoinRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ex6_FollowTheBitcoins/app/src/main/java/com/ctt/followthebitcoins/ui/coin/CoinActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex6_FollowTheBitcoins/app/src/main/java/com/ctt/followthebitcoins/ui/coin/CoinActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ex6_FollowTheBitcoins/app/src/main/java/com/ctt/followthebitcoins/ui/coin/CoinActivityViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex6_FollowTheBitcoins/app/src/main/java/com/ctt/followthebitcoins/ui/coin/CoinActivityViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ex6_FollowTheBitcoins/app/src/main/java/com/ctt/followthebitcoins/ui/coin/CoinsAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex6_FollowTheBitcoins/app/src/main/java/com/ctt/followthebitcoins/ui/coin/CoinsAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ex6_FollowTheBitcoins/app/src/main/java/com/ctt/followthebitcoins/ui/ticker/TickerFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex6_FollowTheBitcoins/app/src/main/java/com/ctt/followthebitcoins/ui/ticker/TickerFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/Learning_Coroutines.app.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +28,18 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -43,6 +53,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RunManager">
