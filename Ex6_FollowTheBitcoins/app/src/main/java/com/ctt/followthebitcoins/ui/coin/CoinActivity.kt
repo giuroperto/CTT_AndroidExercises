@@ -3,6 +3,8 @@ package com.ctt.followthebitcoins.ui.coin
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.ProgressBar
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.viewpager.widget.ViewPager
@@ -22,7 +24,20 @@ import retrofit2.Response
 
 class CoinActivity : AppCompatActivity() {
 
+
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        setContentView(R.layout.activity_main)
+//
+//        button_load_data.setOnClickListener{
+//            launchAstroTask()
+//        }
+//    }
+//
+
+
     private val viewModel = CoinActivityViewModel()
+    private lateinit var progressBar : ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,24 +46,26 @@ class CoinActivity : AppCompatActivity() {
         val tabLayout = findViewById<TabLayout>(R.id.tbMenu)
         val viewPager = findViewById<ViewPager>(R.id.vwTabs)
 
+        viewModel.getAllData().observe(
+
+        )
+
+//        loadData()
         getApiOrderbook()
         getApiTrades()
-        getApiTicker()
 
         viewPager.adapter = PageAdapter(supportFragmentManager, this)
         tabLayout.setupWithViewPager(viewPager)
     }
 
-    fun getApiTicker() {
+    fun loadData() {
+        var loading: Boolean = viewModel.getLoading()
 
-        viewModel.getTicker().observe(
-            this,
-            object : Observer<Ticker> {
-                override fun onChanged(t: Ticker?) {
-                    tickerData = t
-                }
-            }
-        )
+        if (loading) {
+            progressBar.visibility = View.VISIBLE
+        } else {
+            progressBar.visibility = View.GONE
+        }
     }
 
     fun getApiOrderbook() {
@@ -91,8 +108,8 @@ class CoinActivity : AppCompatActivity() {
             viewModel.getTrades()
         }
 
-        if (tickerData != null) {
-            viewModel.getTicker()
+        if (tickerData == null) {
+//            viewModel.getTicker()
         }
     }
 

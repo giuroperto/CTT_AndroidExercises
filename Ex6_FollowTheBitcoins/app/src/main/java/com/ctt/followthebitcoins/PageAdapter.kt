@@ -14,9 +14,7 @@ class PageAdapter(fm: FragmentManager, pageAdapterContext: Context) : FragmentPa
 
     var contextHere = pageAdapterContext
 
-    override fun getCount(): Int {
-        return 3
-    }
+    override fun getCount(): Int = 3
 
     override fun getItem(position: Int): Fragment {
         return when(position) {

@@ -13,6 +13,7 @@ import com.ctt.followthebitcoins.model.TickerResponse
 import com.ctt.followthebitcoins.repository.Network
 import com.ctt.followthebitcoins.repository.services.TickerService
 import com.ctt.followthebitcoins.ui.coin.CoinActivity.Companion.tickerData
+import com.ctt.followthebitcoins.ui.coin.CoinActivityViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -30,6 +31,8 @@ class TickerFragment : Fragment() {
     private lateinit var  infoDate: TextView
     private lateinit var  coinAcr: TextView
     private lateinit var  coinName: TextView
+
+    private val viewModel = CoinActivityViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

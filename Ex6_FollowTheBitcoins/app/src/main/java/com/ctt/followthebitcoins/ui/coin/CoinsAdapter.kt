@@ -43,9 +43,7 @@ class CoinsAdapter(private val coinsList: MutableList<Coin>) : RecyclerView.Adap
         }
     }
 
-    override fun getItemCount(): Int {
-        return coinsList.size
-    }
+    override fun getItemCount(): Int = coinsList.size
 
     fun redirect(coin: Coin) {
 

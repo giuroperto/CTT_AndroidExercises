@@ -7,23 +7,25 @@ import com.ctt.followthebitcoins.repository.services.OrderBookService
 import com.ctt.followthebitcoins.repository.services.TickerService
 import com.ctt.followthebitcoins.repository.services.TradesService
 import com.ctt.followthebitcoins.ui.coin.CoinActivity.Companion.orderList
-import com.ctt.followthebitcoins.ui.main.MainActivity
+import com.ctt.followthebitcoins.ui.coin.CoinActivity.Companion.tickerData
+import com.ctt.followthebitcoins.ui.main.MainActivity.Companion.globalCoin
+import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.text.DecimalFormat
-import java.text.SimpleDateFormat
+import java.util.*
+
 
 class CoinRepository {
 
-    fun getTicker() : MutableLiveData<Ticker>{
+    private val retrofitClient = Network.RetrofitConfig("https://www.mercadobitcoin.net/api/")
 
-        var tickerData : MutableLiveData<Ticker> = MutableLiveData()
-        var tempTicker : Ticker
+    fun getTicker() : MutableLiveData<Ticker> {
 
-        val retrofitClient = Network.RetrofitConfig("https://www.mercadobitcoin.net/api/")
+        val returnedTicker = MutableLiveData<Ticker>()
+
         val service = retrofitClient.create(TickerService::class.java)
-        val call = service.getTicker(MainActivity.globalCoin.acronym)
+        val call = service.getTicker(globalCoin.acronym)
 
         call.enqueue(
                 object : Callback<TickerResponse> {
@@ -31,36 +33,57 @@ class CoinRepository {
                             call: Call<TickerResponse>,
                             response: Response<TickerResponse>
                     ) {
+
                         val responseData = response.body()
 
-                        responseData?.let{
-                            responseData.ticker?.let{
-
-                                val responseHigh: Double = responseData.ticker.high
-                                val responseLow: Double = responseData.ticker.low
-                                val responseVol: Double = responseData.ticker.vol
-                                val responseLast: Double = responseData.ticker.last
-                                val responseBuy: Double = responseData.ticker.buy
-                                val responseSell: Double = responseData.ticker.sell
-                                val responseDate: Double = responseData.ticker.date
-
-                                val dateMiliseconds = responseDate * 1000
-
-                                tempTicker = Ticker(high = responseHigh, low = responseLow, vol = responseVol, last = responseLast, buy = responseBuy, sell = responseSell, date = dateMiliseconds)
-
-                                tickerData.value = tempTicker
+                        if (response.isSuccessful && responseData != null) {
+                            responseData?.let {
+                                val result = parseJsonToResult(it.toString())
+                                Log.e("Response_data", result.toString())
+                                returnedTicker.value = result.ticker
                             }
                         }
+
+
+
+//                        Log.e("RESPONSEDATA", responseData.toString())
+//
+//                        val result = parseJsonToResult(responseData?.toString())
+//                        Log.e("Response_data", result.toString())
+//
+//                       tickerReturned = result.ticker
+
+//                        responseData?.let{
+//                            responseData.ticker?.let{
+//
+//                                val responseHigh: Double = responseData.ticker.high
+//                                val responseLow: Double = responseData.ticker.low
+//                                val responseVol: Double = responseData.ticker.vol
+//                                val responseLast: Double = responseData.ticker.last
+//                                val responseBuy: Double = responseData.ticker.buy
+//                                val responseSell: Double = responseData.ticker.sell
+//                                val responseDate: Double = responseData.ticker.date
+//
+//                                val dateMiliseconds = responseDate * 1000
+//
+//                                tickerData = Ticker(high = responseHigh,
+//                                        low = responseLow,
+//                                        vol = responseVol,
+//                                        last = responseLast,
+//                                        buy = responseBuy,
+//                                        sell = responseSell,
+//                                        date = dateMiliseconds)
+//                            }
+//                        }
                     }
 
                     override fun onFailure(call: Call<TickerResponse>, t: Throwable) {
-                        Log.e("APIERROR", "${t.toString()}")
+                        Log.e("APIERRORTICKER", "${t.toString()}")
                     }
-
+//
                 }
         )
-
-        return tickerData
+        return returnedTicker
     }
 
     fun getOrderbook() : MutableLiveData<MutableList<Order>> {
@@ -68,9 +91,8 @@ class CoinRepository {
         val orderbookLiveData = MutableLiveData<MutableList<Order>>()
         val orderBookList : MutableList<Order> = mutableListOf()
 
-        val retrofitClient = Network.RetrofitConfig("https://www.mercadobitcoin.net/api/")
         val service = retrofitClient.create(OrderBookService::class.java)
-        val call = service.getOrderBook(MainActivity.globalCoin.acronym)
+        val call = service.getOrderBook(globalCoin.acronym)
 
         call.enqueue(
             object : Callback<OrderBook> {
@@ -117,7 +139,7 @@ class CoinRepository {
                 }
 
                 override fun onFailure(call: Call<OrderBook>, t: Throwable) {
-                    Log.e("APIERROR_ORDER", "${t.toString()}")
+                    Log.d("APIERROR_ORDER", "${t.toString()}")
                 }
 
             }
@@ -133,9 +155,8 @@ class CoinRepository {
         val tradesLiveData = MutableLiveData<MutableList<Trade>>()
         var tradesList : MutableList<Trade> = mutableListOf()
 
-        val retrofitClient = Network.RetrofitConfig("https://www.mercadobitcoin.net/api/")
         val service = retrofitClient.create(TradesService::class.java)
-        val call = service.getTrades(MainActivity.globalCoin.acronym)
+        val call = service.getTrades(globalCoin.acronym)
 
         call.enqueue(
                 object : Callback<MutableList<Trade>> {
@@ -171,4 +192,7 @@ class CoinRepository {
         tradesLiveData.value = tradesList
         return tradesLiveData
     }
+
+//    fun parseJsonToResult(json: String?, useClass: Class<Any>) = Gson().fromJson(json, useClass::class.java)
+    fun parseJsonToResult(json: String?) = Gson().fromJson(json, TickerResponse::class.java)
 }
