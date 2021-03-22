@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Learning_Coroutines.iml" filepath="$PROJECT_DIR$/.idea/modules/Learning_Coroutines.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Learning_Coroutines.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Learning_Coroutines.app.iml" />
     </modules>
   </component>
 </project>
