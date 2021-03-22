@@ -8,19 +8,23 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ctt.followthebitcoins.ui.coin.CoinActivity.Companion.orderList
 import com.ctt.followthebitcoins.R
 import com.ctt.followthebitcoins.model.Order
+import com.ctt.followthebitcoins.model.OrderBook
+import com.ctt.followthebitcoins.repository.services.OrderbookApiResponse
+import com.ctt.followthebitcoins.ui.coin.CoinActivityViewModel
 import com.google.android.material.button.MaterialButtonToggleGroup
 
 class OrderbookFragment : Fragment() {
 
     private var orderType: String = "asks"
 
-    private lateinit var filteredList : MutableList<Order>
     private lateinit var toggleBtn : MaterialButtonToggleGroup
     private lateinit var rvOrders : RecyclerView
     private lateinit var adapterOrderBook : OrderbookAdapter
+
+    private val viewModel = CoinActivityViewModel()
+    val coinRepository = viewModel.getCoinRepo()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,106 +36,53 @@ class OrderbookFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        rvOrders = view.findViewById(R.id.rvOrderList)
+
+        getOrderbook()
+
         toggleBtn = view.findViewById(R.id.tbOrders)
-
-        filterArray()
-
-        adapterOrderBook = OrderbookAdapter(filteredList)
-        adapterOrderBook.notifyDataSetChanged()
 
         toggleBtn.addOnButtonCheckedListener{
             toggleButton, checkedId, isChecked ->
 
             if (isChecked) {
                 if (checkedId == 2131230808) {
+                    println("debug: inside ASKS")
                     orderType = "asks"
-                    filterArray()
-
-                    if (filteredList.size > 0) {
-                        rvOrders = view.findViewById(R.id.rvOrderList)
-                        Log.e("CHAMANDO ADAPTER", "chamando adapter logo depois")
-                        adapterOrderBook = OrderbookAdapter(filteredList)
-                        rvOrders.adapter = adapterOrderBook
-                        rvOrders.layoutManager = LinearLayoutManager(requireContext())
-                    }
-
                 } else if (checkedId == 2131230809) {
+                    println("debug: inside bids")
                     orderType = "bids"
-                    filterArray()
-
-                    if (filteredList.size > 0) {
-                        rvOrders = view.findViewById(R.id.rvOrderList)
-                        Log.e("CHAMANDO ADAPTER", "chamando adapter logo depois")
-                        adapterOrderBook = OrderbookAdapter(filteredList)
-                        rvOrders.adapter = adapterOrderBook
-                        rvOrders.layoutManager = LinearLayoutManager(requireContext())
-                    }
-
                 } else {
                     // default
                     orderType = "asks"
-                    filterArray()
-
-                    if (filteredList.size > 0) {
-                        rvOrders = view.findViewById(R.id.rvOrderList)
-                        Log.e("CHAMANDO ADAPTER", "chamando adapter logo depois")
-                        adapterOrderBook = OrderbookAdapter(filteredList)
-                        rvOrders.adapter = adapterOrderBook
-                        rvOrders.layoutManager = LinearLayoutManager(requireContext())
-                    }
-
+                    println("debug: inside default")
                 }
             } else {
                 orderType =""
-                filterArray()
+                println("debug: inside none")
+            }
 
-                if (filteredList.size > 0) {
-                    rvOrders = view.findViewById(R.id.rvOrderList)
-                    Log.e("CHAMANDO ADAPTER", "chamando adapter logo depois")
-                    adapterOrderBook = OrderbookAdapter(filteredList)
-                    rvOrders.adapter = adapterOrderBook
-                    rvOrders.layoutManager = LinearLayoutManager(requireContext())
+            getOrderbook()
+        }
+    }
+
+    private fun configureOrderbook(orderbookData: OrderBook) {
+        adapterOrderBook = OrderbookAdapter(orderbookData, orderType)
+        rvOrders.adapter = adapterOrderBook
+        rvOrders.layoutManager = LinearLayoutManager(requireContext())
+    }
+
+    fun getOrderbook() {
+        coinRepository.getOrderbook(
+            object: OrderbookApiResponse {
+
+                override fun success(orderbook: OrderBook) {
+                    configureOrderbook(orderbook)
                 }
 
             }
-            adapterOrderBook.notifyDataSetChanged()
-        }
-
-        Log.e("LISTSIZE", filteredList.size.toString())
-    }
-
-    override fun onStart() {
-        super.onStart()
-
-        if (filteredList.size == 0) {
-            filterArray()
-        }
-    }
-
-    fun filterArray() {
-
-        Log.e("Filter", "inside filter")
-        Log.e("FilterType", orderType)
-
-        if (orderType == "asks") {
-            filteredList = orderList.filter{ order ->
-                order.type == "asks"
-            } as MutableList<Order>
-        } else if (orderType == "bids") {
-            filteredList = orderList.filter {
-                order ->
-                order.type == "bids"
-            } as MutableList<Order>
-//            adapterOrderBook.notifyDataSetChanged()
-        } else {
-            filteredList = orderList.filter{ order ->
-                order.type == "asks"
-            } as MutableList<Order>
-        }
-
-        Log.e("FILTEREDLIST", filteredList.toString())
-
+        )
     }
 }
 
-// TODO: 15/03/2021 change to livedata
+// TODO: 22/03/2021 add loader so it will only show app when fetch a response from api
