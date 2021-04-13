@@ -28,15 +28,4 @@
         tools:listitem="@layout/item_address"
         />
 
-<!--    <TextView-->
-<!--        android:id="@+id/txtResult"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintLeft_toLeftOf="parent"-->
-<!--        app:layout_constraintRight_toRightOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        tools:text="Endereco"-->
-<!--        />-->
-
 </androidx.constraintlayout.widget.ConstraintLayout>

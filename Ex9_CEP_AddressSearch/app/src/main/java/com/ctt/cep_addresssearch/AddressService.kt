@@ -14,9 +14,4 @@ interface AddressService {
         @Path("searchCity") city: String
     ) : Call<List<Address>>
 
-//    @GET("{searchFullAddress}/json/")
-//    fun fetchAddress(
-//        @Path("searchFullAddress") fullAddress: String
-//    ) : Call<List<Address>>
-
 }
