@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        txtResult = findViewById(R.id.txtResult)
         btnSearch = findViewById(R.id.btnSearch)
         rvAddress = findViewById(R.id.rvAddresses)
 
@@ -38,7 +37,6 @@ class MainActivity : AppCompatActivity() {
         btnSearch.setOnClickListener {
             val retrofitClient = RetrofitConfig("https://viacep.com.br/ws/")
             val service = retrofitClient.create(AddressService::class.java)
-//            val call : Call<List<Address>> = service?.fetchAddress(fullAddress = fullAddress) as Call<List<Address>>
             val call : Call<List<Address>> = service?.fetchAddress(state = state, street = address, city = city) as Call<List<Address>>
             Log.d("TRACKER", "https://viacep.com.br/ws/$fullAddress/json/")
 
@@ -48,18 +46,12 @@ class MainActivity : AppCompatActivity() {
                         call: Call<List<Address>>,
                         response: Response<List<Address>>
                     ) {
-//                        Log.d("TRACKER", "inside response")
-//                        Log.d("TRACKER", response.body().toString())
-//                        Log.d("TRACKER", response.isSuccessful.toString())
-
                         if (response.isSuccessful && response.body() != null) {
-//                            Log.d("TRACKER", "inside success")
 
                             response.body()?.let {
                                 val adapter = AddressAdapter(it.toList())
 
                                 rvAddress.adapter = adapter
-//                                Log.d("API RESPONSE", it.toString())
                             }
                         }
                     }
